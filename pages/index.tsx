@@ -6,10 +6,12 @@ import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Row from '../components/Row'
 import useAuth from '../hooks/useAuth'
-import { Movie } from '../typings'
+import { Movie, Product } from '../typings'
 import requests from '../utils/requests'
 import { modalState, movieState } from '../atoms/modelAtom'
 import Modal from '../components/Modal'
+import Plans from '../components/Plans'
+import productss  from './api/products'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -20,6 +22,7 @@ interface Props {
   horrorMovies: Movie[]
   romanceMovies: Movie[]
   documentaries: Movie[]
+  products: Product[]
 }
 
 const Home = ({
@@ -30,12 +33,17 @@ const Home = ({
   horrorMovies,
   romanceMovies,
   topRated,
-  trendingNow
+  trendingNow,
+  products
 }:Props) => {
   const { logout, loading } = useAuth()
   const showModal = useRecoilValue(modalState)
+  const subscription = false;
 
-  if(loading) return null
+  if(loading || subscription===null) return null
+
+  if(!subscription) return <Plans  products={products} />
+
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
       <Head>
@@ -70,7 +78,7 @@ export default Home
 
 
 export const getServerSideProps = async () => {
-
+  const products:Product[] = productss
   const [
     netflixOriginals,
     trendingNow,
@@ -80,6 +88,7 @@ export const getServerSideProps = async () => {
     horrorMovies,
     romanceMovies,
     documentaries,
+    // products
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
@@ -89,10 +98,12 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchHorrorMovies).then((res) => res.json()),
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
+    // fetch("/api/hello").then((res) =>res.json()),
   ])
 
 
-  
+  console.log(products)
+
   return  {
     props:{
       netflixOriginals: netflixOriginals.results,
@@ -103,6 +114,7 @@ export const getServerSideProps = async () => {
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
+      products
     }
   }
 }

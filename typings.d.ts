@@ -31,3 +31,16 @@ export interface Genre {
       | 'Trailer'
       | 'Teaser'
   }
+
+
+  export interface Product {
+    description: string
+    name: string
+    role: string
+    resolution: string
+    number_of_devices: number
+    id: number
+    videoQuality: string
+    price: string
+    portability:boolean
+  }
