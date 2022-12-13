@@ -2,8 +2,8 @@ export interface Genre {
     id: number
     name: string
   }
-  
-  export interface Movie {
+
+export interface Movie {
     title: string
     backdrop_path: string
     media_type?: string
@@ -21,8 +21,8 @@ export interface Genre {
     vote_average: number
     vote_count: number
   }
-  
-  export interface Element {
+
+export interface Element {
     type:
       | 'Bloopers'
       | 'Featurette'
@@ -32,8 +32,7 @@ export interface Genre {
       | 'Teaser'
   }
 
-
-  export interface Product {
+export interface Product {
     description: string
     name: string
     role: string
