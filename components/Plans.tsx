@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { CheckIcon } from '@heroicons/react/outline'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -6,7 +7,6 @@ import useAuth from '../hooks/useAuth'
 import { Product } from '../typings'
 import Loader from './Loader'
 import Table from './Table'
-// import Table from './Table'
 
 
 interface Props {
@@ -42,7 +42,7 @@ function Plans({ products }: Props) {
         </button>
       </header>
       <main className="mx-auto max-w-5xl px-5 pt-28 pb-12 transition-all md:px-10">
-            <h1 className="mb-3 text-3xl font-medium">Choose the plan that's right for you</h1>
+            <h1 className="mb-3 text-3xl font-medium">Choose the plan that is right for you</h1>
             <ul>
                 <li className="flex items-center gap-x-2 text-lg">
                     <CheckIcon className="h-7 w-7 text-[#E50914]" /> Watch all you want.

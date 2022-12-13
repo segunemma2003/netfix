@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import {SearchIcon,BellIcon} from "@heroicons/react/solid";
 import Link from "next/link";
 import { useEffect, useState} from "react";
