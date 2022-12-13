@@ -1,5 +1,6 @@
-import { CheckIcon } from '@heroicons/react/outline'
-import { Product } from '../typings'
+/* eslint-disable import/extensions */
+import { CheckIcon } from '@heroicons/react/outline';
+import { Product } from '../typings';
 
 interface Props {
   products: Product[]
@@ -21,7 +22,8 @@ function Table({ products, selectedPlan }: Props) {
               }`}
               key={product.id}
             >
-            USD{product.price}
+              USD
+              {product.price}
             </td>
           ))}
         </tr>
@@ -76,7 +78,7 @@ function Table({ products, selectedPlan }: Props) {
         </tr>
       </tbody>
     </table>
-  )
+  );
 }
 
-export default Table
+export default Table;

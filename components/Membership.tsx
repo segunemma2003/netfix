@@ -1,44 +1,46 @@
-import React, { useState } from 'react'
-import useAuth from '../hooks/useAuth'
-import products from '../pages/api/products'
-import Loader from './Loader'
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/extensions */
+/* eslint-disable react/button-has-type */
+import React, { useState } from 'react';
+import useAuth from '../hooks/useAuth';
+import products from '../pages/api/products';
+import Loader from './Loader';
 
 function Membership() {
-    const [isBillingLoading, setBillingLoading] = useState(false)
-    const subscription = products[2]
-    const { user } = useAuth()
-    
+  const [isBillingLoading, setBillingLoading] = useState(false);
+  const subscription = products[2];
+  const { user } = useAuth();
+
   return (
     <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0">
-     <div className="space-y-2 py-4">
+      <div className="space-y-2 py-4">
         <h4 className="text-lg text-[gray]">Membership & Billing</h4>
-            <button
-            disabled={isBillingLoading || !subscription}
-            className="h-10 w-3/5 whitespace-nowrap bg-gray-300 py-2 text-sm font-medium text-black shadow-md hover:bg-gray-200 md:w-4/5"
-            // onClick={manageSubscription}
-            >
-            {isBillingLoading ? (
-                <Loader color="dark:fill-[#e50914]" />
-            ) : (
-                'Cancel Membership'
-            )}
-            </button>
+        <button
+          disabled={isBillingLoading || !subscription}
+          className="h-10 w-3/5 whitespace-nowrap bg-gray-300 py-2 text-sm font-medium text-black shadow-md hover:bg-gray-200 md:w-4/5"
+        >
+          {isBillingLoading ? (
+            <Loader color="dark:fill-[#e50914]" />
+          ) : (
+            'Cancel Membership'
+          )}
+        </button>
       </div>
       <div className="col-span-3">
         <div className="flex flex-col justify-between border-b border-white/10 py-4 md:flex-row">
-            <div>
-                <p className="font-medium">{user?.email}</p>
-                <p className="text-[gray]">Password: ********</p>
-            </div>
-            <div className="md:text-right">
-                <p className="membershipLink">Change email</p>
-                <p className="membershipLink">Change password</p>
-            </div>
+          <div>
+            <p className="font-medium">{user?.email}</p>
+            <p className="text-[gray]">Password: ********</p>
+          </div>
+          <div className="md:text-right">
+            <p className="membershipLink">Change email</p>
+            <p className="membershipLink">Change password</p>
+          </div>
         </div>
         <div className="flex flex-col justify-between pt-4 pb-4 md:flex-row md:pb-0">
           <div>
             <p>
-             Your next billing date is 3rd of dec 2030
+              Your next billing date is 3rd of dec 2030
             </p>
           </div>
           <div className="md:text-right">
@@ -50,7 +52,7 @@ function Membership() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Membership
+export default Membership;

@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
-import { modalState, movieState } from '../atoms/modelAtom'
-import ReactPlayer from 'react-player/lazy'
-import { FaPlay } from 'react-icons/fa'
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/button-has-type */
+/* eslint-disable consistent-return */
+/* eslint-disable import/extensions */
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import ReactPlayer from 'react-player/lazy';
+import { FaPlay } from 'react-icons/fa';
 import {
   CheckIcon,
   PlusIcon,
@@ -10,9 +13,8 @@ import {
   VolumeOffIcon,
   VolumeUpIcon,
   XIcon,
-} from '@heroicons/react/outline'
-import { Element, Genre, Movie } from '../typings'
-import MuiModal from '@mui/material/Modal'
+} from '@heroicons/react/outline';
+import MuiModal from '@mui/material/Modal';
 import {
   collection,
   deleteDoc,
@@ -20,20 +22,22 @@ import {
   DocumentData,
   onSnapshot,
   setDoc,
-} from 'firebase/firestore'
-import { db } from '../firebase'
-import useAuth from '../hooks/useAuth'
-import toast, { Toaster } from 'react-hot-toast'
+} from 'firebase/firestore';
+import toast, { Toaster } from 'react-hot-toast';
+import { Element, Genre, Movie } from '../typings';
+import { db } from '../firebase';
+import useAuth from '../hooks/useAuth';
+import { modalState, movieState } from '../atoms/modelAtom';
 
 function Modal() {
-  const [movie, setMovie] = useRecoilState(movieState)
-  const [trailer, setTrailer] = useState('')
-  const [showModal, setShowModal] = useRecoilState(modalState)
-  const [muted, setMuted] = useState(true)
-  const [genres, setGenres] = useState<Genre[]>([])
-  const [addedToList, setAddedToList] = useState(false)
-  const { user } = useAuth()
-  const [movies, setMovies] = useState<DocumentData[] | Movie[]>([])
+  const [movie, setMovie] = useRecoilState(movieState);
+  const [trailer, setTrailer] = useState('');
+  const [showModal, setShowModal] = useRecoilState(modalState);
+  const [muted, setMuted] = useState(true);
+  const [genres, setGenres] = useState<Genre[]>([]);
+  const [addedToList, setAddedToList] = useState(false);
+  const { user } = useAuth();
+  const [movies, setMovies] = useState<DocumentData[] | Movie[]>([]);
 
   const toastStyle = {
     background: 'white',
@@ -43,10 +47,10 @@ function Modal() {
     padding: '15px',
     borderRadius: '9999px',
     maxWidth: '1000px',
-  }
+  };
 
   useEffect(() => {
-    if (!movie) return
+    if (!movie) return;
 
     async function fetchMovie() {
       const data = await fetch(
@@ -54,79 +58,76 @@ function Modal() {
           movie?.media_type === 'tv' ? 'tv' : 'movie'
         }/${movie?.id}?api_key=${
           process.env.NEXT_PUBLIC_API_KEY
-        }&language=en-US&append_to_response=videos`
-      ).then((response) => response.json())
+        }&language=en-US&append_to_response=videos`,
+      ).then((response) => response.json());
       if (data?.videos) {
         const index = data.videos.results.findIndex(
-          (element: Element) => element.type === 'Trailer'
-        )
-        setTrailer(data.videos?.results[index]?.key)
+          (element: Element) => element.type === 'Trailer',
+        );
+        setTrailer(data.videos?.results[index]?.key);
       }
       if (data?.genres) {
-        setGenres(data.genres)
+        setGenres(data.genres);
       }
     }
 
-    fetchMovie()
-  }, [movie])
+    fetchMovie();
+  }, [movie]);
 
   const handleClose = () => {
-    setShowModal(false)
-    setMovie(null)
-    toast.dismiss()
-  }
+    setShowModal(false);
+    setMovie(null);
+    toast.dismiss();
+  };
 
   // Find all the movies in the user's list
   useEffect(() => {
     if (user) {
       return onSnapshot(
         collection(db, 'customers', user.uid, 'myList'),
-        (snapshot) => setMovies(snapshot.docs)
-      )
+        (snapshot) => setMovies(snapshot.docs),
+      );
     }
-  }, [db, movie?.id])
+  }, [movie]);
 
   // Check if the movie is already in the user's list
   useEffect(
-    () =>
-      setAddedToList(
-        movies.findIndex((result) => result.data().id === movie?.id) !== -1
-      ),
-    [movies]
-  )
+    () => setAddedToList(
+      movies.findIndex((result) => result.data().id === movie?.id) !== -1,
+    ),
+    [movie?.id, movies],
+  );
 
   const handleList = async () => {
     if (addedToList) {
       await deleteDoc(
-        doc(db, 'customers', user!.uid, 'myList', movie?.id.toString()!)
-      )
+        doc(db, 'customers', user!.uid, 'myList', movie?.id.toString()!),
+      );
 
       toast(
         `${movie?.title || movie?.original_name} has been removed from My List`,
         {
           duration: 8000,
           style: toastStyle,
-        }
-      )
+        },
+      );
     } else {
       await setDoc(
         doc(db, 'customers', user!.uid, 'myList', movie?.id.toString()!),
         {
           ...movie,
-        }
-      )
+        },
+      );
 
       toast(
         `${movie?.title || movie?.original_name} has been added to My List.`,
         {
           duration: 8000,
           style: toastStyle,
-        }
-      )
+        },
+      );
     }
-  }
-
-  console.log(addedToList)
+  };
 
   return (
     <MuiModal
@@ -182,7 +183,8 @@ function Modal() {
           <div className="space-y-6 text-lg">
             <div className="flex items-center space-x-2 text-sm">
               <p className="font-semibold text-green-400">
-                {movie!.vote_average * 10}% Match
+                {movie!.vote_average * 10}
+                % Match
               </p>
               <p className="font-light">
                 {movie?.release_date || movie?.first_air_date}
@@ -195,17 +197,20 @@ function Modal() {
               <p className="w-5/6">{movie?.overview}</p>
               <div className="flex flex-col space-y-3 text-sm">
                 <div>
-                  <span className="text-[gray]">Genres:</span>{' '}
+                  <span className="text-[gray]">Genres:</span>
+                  {' '}
                   {genres.map((genre) => genre.name).join(', ')}
                 </div>
 
                 <div>
-                  <span className="text-[gray]">Original language:</span>{' '}
+                  <span className="text-[gray]">Original language:</span>
+                  {' '}
                   {movie?.original_language}
                 </div>
 
                 <div>
-                  <span className="text-[gray]">Total votes:</span>{' '}
+                  <span className="text-[gray]">Total votes:</span>
+                  {' '}
                   {movie?.vote_count}
                 </div>
               </div>
@@ -214,7 +219,7 @@ function Modal() {
         </div>
       </>
     </MuiModal>
-  )
+  );
 }
 
-export default Modal
+export default Modal;

@@ -1,20 +1,19 @@
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
-import { useState } from 'react'
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { useState, MouseEvent } from 'react';
 
- function BasicMenu() {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
+function BasicMenu() {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
 
   const handleClose = () => {
-    setAnchorEl(null)
-  }
- 
+    setAnchorEl(null);
+  };
   return (
     <div className="md:!hidden">
       <Button
@@ -44,7 +43,7 @@ import { useState } from 'react'
         <MenuItem onClick={handleClose}>My List</MenuItem>
       </Menu>
     </div>
-  )
+  );
 }
 
-export default BasicMenu
+export default BasicMenu;
