@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import Head from 'next/head';
 import { useRecoilValue } from 'recoil';
 import Banner from '../components/Banner';
