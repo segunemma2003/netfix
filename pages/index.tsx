@@ -98,8 +98,6 @@ export const getServerSideProps = async () => {
     // fetch("/api/hello").then((res) =>res.json()),
   ]);
 
-  console.log(products);
-
   return {
     props: {
       netflixOriginals: netflixOriginals.results,

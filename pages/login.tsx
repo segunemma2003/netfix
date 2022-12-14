@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { useState } from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import useAuth from '../hooks/useAuth'
+import Head from 'next/head';
+import Image from 'next/image';
+import { useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import useAuth from '../hooks/useAuth';
 
 interface Inputs {
   email: string
@@ -10,24 +10,23 @@ interface Inputs {
 }
 
 function Login() {
-  const [login, setLogin] = useState(false)
-  const { signIn, signUp } = useAuth()
+  const [login, setLogin] = useState(false);
+  const { signIn, signUp } = useAuth();
 
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>()
+  } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data)
     if (login) {
-      await signIn(data.email, data.password)
+      await signIn(data.email, data.password);
     } else {
-      await signUp(data.email, data.password)
+      await signUp(data.email, data.password);
     }
-  }
+  };
 
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
@@ -47,6 +46,7 @@ function Login() {
         className="absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6"
         width={150}
         height={150}
+        alt=""
       />
 
       <form
@@ -55,7 +55,10 @@ function Login() {
       >
         <h1 className="text-4xl font-semibold">Sign In</h1>
         <div className="space-y-4">
-          <label className="inline-block w-full">
+          <label
+            className="inline-block w-full"
+            htmlFor="email"
+          >
             <input
               type="email"
               placeholder="Email"
@@ -70,7 +73,10 @@ function Login() {
               </p>
             )}
           </label>
-          <label className="inline-block w-full">
+          <label
+            htmlFor="password"
+            className="inline-block w-full"
+          >
             <input
               type="password"
               {...register('password', { required: true })}
@@ -94,7 +100,8 @@ function Login() {
           Sign In
         </button>
         <div className="text-[gray]">
-          New to Netflix?{' '}
+          New to Netflix?
+          {' '}
           <button
             className="cursor-pointer text-white hover:underline"
             onClick={() => setLogin(false)}
@@ -105,7 +112,7 @@ function Login() {
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
