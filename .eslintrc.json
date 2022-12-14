@@ -5,6 +5,7 @@
   ],
   "rules": {
     // suppress errors for missing 'import React' in files
+    "linebreak-style": 0,
    "react/react-in-jsx-scope": "off",
    "no-unused-expressions": "off",
    "react/jsx-props-no-spreading": "off",
