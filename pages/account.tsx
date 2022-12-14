@@ -1,8 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable import/extensions */
-/* eslint-disable @next/next/no-img-element */
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -84,6 +79,7 @@ function Account({ products }: Props) {
           <p
             className="col-span-3 cursor-pointer text-blue-500 hover:underline"
             onClick={logout}
+            aria-hidden="true"
           >
             Sign out of all devices
           </p>

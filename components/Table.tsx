@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { CheckIcon } from '@heroicons/react/outline';
 import { Product } from '../typings';
 

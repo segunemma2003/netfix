@@ -1,7 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/button-has-type */
-/* eslint-disable consistent-return */
-/* eslint-disable import/extensions */
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import ReactPlayer from 'react-player/lazy';
@@ -138,6 +134,7 @@ function Modal() {
       <>
         <Toaster position="bottom-center" />
         <button
+          type="button"
           className="modalButton absolute right-5 top-5 !z-40 h-9 w-9 border-none bg-[#181818] hover:bg-[#181818]"
           onClick={handleClose}
         >
@@ -155,22 +152,22 @@ function Modal() {
           />
           <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
             <div className="flex space-x-2">
-              <button className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
+              <button type="button" className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
                 <FaPlay className="h-7 w-7 text-black" />
                 Play
               </button>
-              <button className="modalButton" onClick={handleList}>
+              <button type="button" className="modalButton" onClick={handleList}>
                 {addedToList ? (
                   <CheckIcon className="h-7 w-7" />
                 ) : (
                   <PlusIcon className="h-7 w-7" />
                 )}
               </button>
-              <button className="modalButton">
+              <button type="button" className="modalButton">
                 <ThumbUpIcon className="h-6 w-6" />
               </button>
             </div>
-            <button className="modalButton" onClick={() => setMuted(!muted)}>
+            <button type="button" className="modalButton" onClick={() => setMuted(!muted)}>
               {muted ? (
                 <VolumeOffIcon className="h-6 w-6" />
               ) : (

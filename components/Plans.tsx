@@ -1,8 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/button-has-type */
-/* eslint-disable import/extensions */
-/* eslint-disable @next/next/no-img-element */
 import { CheckIcon } from '@heroicons/react/outline';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -39,6 +34,7 @@ function Plans({ products }: Props) {
           />
         </Link>
         <button
+          type="button"
           className="text-lg font-medium hover:underline"
           onClick={logout}
         >
@@ -75,6 +71,7 @@ function Plans({ products }: Props) {
                   selectedPlan?.id === product.id ? 'opacity-100' : 'opacity-60'
                 }`}
                 key={product.id}
+                aria-hidden="true"
                 onClick={() => setSelectedPlan(product)}
               >
                 {product.name}
@@ -84,6 +81,7 @@ function Plans({ products }: Props) {
           <Table products={products} selectedPlan={selectedPlan} />
 
           <button
+            type="button"
             disabled={!selectedPlan || isBillingLoading}
             className={`mx-auto w-11/12 rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${
               isBillingLoading && 'opacity-60'

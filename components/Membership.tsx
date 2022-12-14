@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/extensions */
-/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import products from '../pages/api/products';
@@ -16,6 +13,7 @@ function Membership() {
       <div className="space-y-2 py-4">
         <h4 className="text-lg text-[gray]">Membership & Billing</h4>
         <button
+          type="button"
           disabled={isBillingLoading || !subscription}
           className="h-10 w-3/5 whitespace-nowrap bg-gray-300 py-2 text-sm font-medium text-black shadow-md hover:bg-gray-200 md:w-4/5"
         >

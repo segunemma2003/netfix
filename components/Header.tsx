@@ -1,6 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
 import { SearchIcon, BellIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -35,6 +32,7 @@ function Header() {
           width={100}
           height={100}
           className="cursor-pointer object-contain"
+          alt="dt"
         />
 
         <BasicMenu />
