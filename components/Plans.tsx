@@ -1,6 +1,7 @@
 import { CheckIcon } from '@heroicons/react/outline';
 import Head from 'next/head';
 import Link from 'next/link';
+import Router from 'next/router';
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Product } from '../typings';
@@ -82,6 +83,7 @@ function Plans({ products }: Props) {
 
           <button
             type="button"
+            onClick={() => Router.push('/signup/howtopay')}
             disabled={!selectedPlan || isBillingLoading}
             className={`mx-auto w-11/12 rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${
               isBillingLoading && 'opacity-60'

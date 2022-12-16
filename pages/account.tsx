@@ -23,7 +23,7 @@ function Account({ products }: Props) {
         <title>Account Settings - Netflix</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="bg-[#141414]">
+      <header className="border-b border-white/10 bg-[#141414]">
         <Link href="/">
           <img
             src="https://rb.gy/ulxxee"

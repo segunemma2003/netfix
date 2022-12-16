@@ -1,57 +1,100 @@
 import Head from 'next/head';
 import Image from 'next/image';
-// import { useUserContext } from "../context/userContext";
-
+import { useState } from 'react';
 import Welcome from '../components/Welcome';
 import AccordianPage from '../components/AccordianPage';
-// import Footer from "../components/Footer";
-// import { useRouter } from "next/router";
-// import { useEffect } from "react";
-// import AOS from "aos";
-// import "aos/dist/aos.css"; // You can also use <link> for styles
-// import Modal from "../components/Modal";
-// import DusraFooter from "../components/DusraFooter";
-// ..
+import HomeBanner from '../components/HomeBanner';
+
 export default function Home() {
+  const [email, setEmail] = useState('');
   return (
-    <div className=" bg-black">
+    <div className="relative h-screen bg-gradient-to-b from-gray-950/10 to-[#010511] lg:h-[140vh]">
       <Head>
-        <meta name="title" content="Netflix Clone" />
-        <meta
-          name="description"
-          content="Netflix clone built with Next.js and TailwindCSS "
-        />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="nnetflix-clone-p67.vercel.app" />
-        <meta property="og:title" content="Netflix Clone - pawan67" />
-        <meta
-          property="og:description"
-          content="Netflix clone built with Next.js and TailwindCSS for the frontend and Firebase for the backend using React Hooks."
-        />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dewctbby3/image/upload/v1647663227/7dc497e2-4975-11ec-a9ce-066b49664af6_cm_1440w_dugogx.jpg"
-        />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="netflix-clone-p67.vercel.app" />
-        <meta property="twitter:title" content="Netflix Clone - pawan67" />
-        <meta
-          property="twitter:description"
-          content="Netflix clone built with Next.js and TailwindCSS for the frontend and Firebase for the backend using React Hooks."
-        />
-        <meta
-          property="twitter:image"
-          content="https://res.cloudinary.com/dewctbby3/image/upload/v1647663227/7dc497e2-4975-11ec-a9ce-066b49664af6_cm_1440w_dugogx.jpg"
-        />
-        <title>Netflix - Watch TV shows Online, Watch Movies Online</title>
-
+        <title>Home - Netflix</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Welcome />
-      <AccordianPage />
-      {/* <DusraFooter /> */}
+      <main>
+        <HomeBanner />
+        <hr className="divide-stone-600" />
+        <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">
+          <div className="w-1/2">
+            <h1 className="text-5xl font-bold">Enjoy on your TV.</h1>
+            <p className="text-3xl">
+              Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more
+            </p>
+          </div>
+          <div
+            className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
+            aria-hidden="true"
+          >
+            <Image
+              src="https://rb.gy/qjdvyb"
+              className="rounded-sm object-cover md:rounded"
+              layout="fill"
+              alt="hj"
+            />
+          </div>
+        </div>
+        <hr />
+        <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">
+          <div
+            className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
+            aria-hidden="true"
+          >
+            <Image
+              src="https://rb.gy/vacitf"
+              className="rounded-sm object-cover md:rounded"
+              layout="fill"
+              alt="hj"
+            />
+          </div>
+          <div className="w-1/2">
+            <h1 className="text-5xl font-bold">Download your shows to watch offline.</h1>
+            <p className="text-3xl">
+              Save your favorites easily and always have something to watch.
+            </p>
+          </div>
+
+        </div>
+        <hr />
+        <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">
+          <div className="w-1/2">
+            <h1 className="text-5xl font-bold">Watch everywhere.</h1>
+            <p className="text-3xl">
+              Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.
+            </p>
+          </div>
+          <div
+            className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
+            aria-hidden="true"
+          />
+        </div>
+        <hr />
+        <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">
+          <div
+            className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
+            aria-hidden="true"
+          >
+            <Image
+              src="https://rb.gy/zhsf87"
+              className="rounded-sm object-cover md:rounded"
+              layout="fill"
+              alt="hj"
+            />
+          </div>
+          <div className="w-1/2">
+            <h1 className="text-5xl font-bold">Create profiles for kids.</h1>
+            <p className="text-3xl">
+              Send kids on adventures with their favorite characters in a space made just
+              for them—free with your membership.
+            </p>
+          </div>
+
+        </div>
+        <hr />
+        <AccordianPage />
+      </main>
     </div>
   );
 }

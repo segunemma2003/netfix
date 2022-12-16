@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import { useRecoilValue } from 'recoil';
+import Router from 'next/router';
+import { useEffect } from 'react';
 import Banner from '../components/Banner';
 import Header from '../components/Header';
 import Row from '../components/Row';
@@ -34,13 +36,15 @@ function Home({
   trendingNow,
   products,
 }:Props) {
-  const { loading } = useAuth();
+  const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalState);
   const subscription = false;
 
   if (loading || subscription === null) return null;
 
-  if (!subscription) return <Plans products={products} />;
+  if (!user) Router.push('/homepage');
+
+  // if (!subscription) return <Plans products={products} />;
 
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">

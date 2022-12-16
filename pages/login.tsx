@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Router from 'next/router';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import useAuth from '../hooks/useAuth';
@@ -12,6 +13,8 @@ interface Inputs {
 function Login() {
   const [login, setLogin] = useState(false);
   const { signIn, signUp } = useAuth();
+
+  const moveUser = () => Router.push('/homepage');
 
   const {
     register,
@@ -104,8 +107,8 @@ function Login() {
           {' '}
           <button
             className="cursor-pointer text-white hover:underline"
-            onClick={() => setLogin(false)}
-            type="submit"
+            onClick={() => moveUser()}
+            type="button"
           >
             Sign up now
           </button>
