@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Router from 'next/router';
 import React from 'react';
 import useAuth from '../hooks/useAuth';
 
@@ -18,9 +19,9 @@ function HeaderSign() {
       <button
         type="button"
         className="text-lg font-medium hover:underline"
-        onClick={logout}
+        onClick={() => Router.push('/login')}
       >
-        Sign Out
+        Sign In
       </button>
     </header>
   );
