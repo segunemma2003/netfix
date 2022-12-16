@@ -43,6 +43,14 @@ function Welcome() {
             Sign in
           </button>
         </Link>
+        <Link href="/signup">
+          <button
+            type="button"
+            className="active:scale-95 md:mr-5 px-4 py-1 text-sm sm:text-lg  rounded-[3px] bg-[#f40612] text-white "
+          >
+            Sign up
+          </button>
+        </Link>
       </div>
     </header>
   );

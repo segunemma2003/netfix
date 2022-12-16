@@ -23,6 +23,13 @@ function HeaderSign() {
       >
         Sign In
       </button>
+      <button
+        type="button"
+        className="text-lg font-medium hover:underline"
+        onClick={() => Router.push('/signup')}
+      >
+        Sign Up
+      </button>
     </header>
   );
 }

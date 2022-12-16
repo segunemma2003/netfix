@@ -14,7 +14,7 @@ function Login() {
   const [login, setLogin] = useState(false);
   const { signIn, signUp } = useAuth();
 
-  const moveUser = () => Router.push('/homepage');
+  const moveUser = () => Router.push('/signup');
 
   const {
     register,

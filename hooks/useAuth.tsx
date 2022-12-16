@@ -91,6 +91,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     signOut(auth)
       .then(() => {
         setUser(null);
+        router.push("/homepage");
       })
       .catch((error) => alert(error.message))
       .finally(() => setLoading(false));
