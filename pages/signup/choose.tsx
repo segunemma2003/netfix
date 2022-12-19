@@ -8,6 +8,7 @@ import Router from 'next/router';
 import useAuth from '../../hooks/useAuth';
 import Welcome from '../../components/Welcome';
 import HeaderSign from '../../components/HeaderSign';
+import SignupFooter from '../../components/SignupFooter';
 
 function Choose() {
   return (
@@ -18,7 +19,7 @@ function Choose() {
       </Head>
       <HeaderSign />
 
-      <main>
+      <main className="content-center mt-52 pb-20">
         <div className="w-11/12 space-y-8 flex flex-col items-center justify-center mx-auto">
           <div
             className="relative min-w-[20px] cursor-pointer transition duration-200 ease-out md:min-w-[30px] md:hover:scale-105"
@@ -58,7 +59,7 @@ function Choose() {
           </button>
         </div>
       </main>
-
+      <SignupFooter />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import BasicMenu from './BasicMenu';
+import MenuDropdown from './MenuDropdown';
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,7 +52,7 @@ function Header() {
           className="sm hidden h-6 w-6 sm:inline"
         />
         <p className="hidden lg:inline">{user?.email}</p>
-        <BellIcon className="h-6 w-6" />
+        <MenuDropdown />
         <Link href="/account">
           <img
             src="https://rb.gy/g1pwyx"

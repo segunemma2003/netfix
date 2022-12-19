@@ -7,6 +7,7 @@ import Router from 'next/router';
 import useAuth from '../../hooks/useAuth';
 import Welcome from '../../components/Welcome';
 import HeaderSign from '../../components/HeaderSign';
+import SignupFooter from '../../components/SignupFooter';
 
 function SignUp() {
   return (
@@ -17,7 +18,7 @@ function SignUp() {
       </Head>
       <HeaderSign />
 
-      <main>
+      <main className="content-center mt-52 pb-20">
         <div className="w-4/6 flex flex-col items-center justify-center mx-auto">
           <div
             className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
@@ -46,7 +47,7 @@ function SignUp() {
           </button>
         </div>
       </main>
-
+      <SignupFooter />
     </div>
   );
 }

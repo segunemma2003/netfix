@@ -38,6 +38,7 @@ export interface Product {
     role: string
     resolution: string
     number_of_devices: number
+    devices:string[]
     id: number
     videoQuality: string
     price: string

@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import Welcome from '../components/Welcome';
 import AccordianPage from '../components/AccordianPage';
@@ -8,7 +10,7 @@ import HomeBanner from '../components/HomeBanner';
 export default function Home() {
   const [email, setEmail] = useState('');
   return (
-    <div className="relative h-screen bg-gradient-to-b from-gray-950/10 to-[#010511] lg:h-[140vh]">
+    <div className="relative h-screen bg-black lg:h-[140vh] md:bg-transparent">
       <Head>
         <title>Home - Netflix</title>
         <link rel="icon" href="/favicon.ico" />
@@ -94,6 +96,114 @@ export default function Home() {
         </div>
         <hr />
         <AccordianPage />
+        <hr />
+        <div className="w-full px-36 flex flex-col bg-black space-y-8 py-8 mt-auto">
+          <Link
+            href="#"
+          >
+            Questions? Contact us.
+          </Link>
+          <div className="flex flex-row space-x-32 text-xs">
+            <div className="flex flex-col space-y-2">
+              <Link
+                href="#"
+              >
+                FAQ
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Investor Relations
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Privacy
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Speed Test
+
+              </Link>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <Link
+                href="#"
+              >
+                Help Center
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Jobs
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Cookie Preferences
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Legal Notices
+
+              </Link>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <Link
+                href="#"
+              >
+                Ways to Watch
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Account
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Corporate Information
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Only on Netflix
+
+              </Link>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <Link
+                href="#"
+              >
+                Media Center
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Terms of Use
+
+              </Link>
+              <Link
+                href="#"
+              >
+                Contact Us
+
+              </Link>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

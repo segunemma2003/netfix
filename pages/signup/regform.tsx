@@ -6,6 +6,7 @@ import Link from 'next/link';
 import useAuth from '../../hooks/useAuth';
 import Welcome from '../../components/Welcome';
 import HeaderSign from '../../components/HeaderSign';
+import SignupFooter from '../../components/SignupFooter';
 
 interface Inputs {
     email: string
@@ -43,7 +44,7 @@ function SignForm() {
       </Head>
       <HeaderSign />
 
-      <main>
+      <main className="content-center mt-52 pb-20">
         <div className="w-4/6 flex flex-col space-y-3 text-start  mx-auto">
 
           <p className="text-sm">STEP 1 OF 3</p>
@@ -96,6 +97,14 @@ function SignForm() {
                 )}
               </label>
             </div>
+            <div className="w-full flex flex-row space-x-4 items-center">
+              <input
+                type="checkbox"
+                className="w-8 h-8"
+              />
+              <p>Please do not email me Netflix special offers</p>
+            </div>
+
             <button
               className="w-full rounded bg-[#E50914] py-3 font-semibold"
               type="submit"
@@ -107,7 +116,7 @@ function SignForm() {
           </form>
         </div>
       </main>
-
+      <SignupFooter />
     </div>
   );
 }

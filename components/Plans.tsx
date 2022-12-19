@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Product } from '../typings';
 import Loader from './Loader';
+import SignupFooter from './SignupFooter';
 import Table from './Table';
 
 interface Props {
@@ -42,7 +43,8 @@ function Plans({ products }: Props) {
           Sign Out
         </button>
       </header>
-      <main className="mx-auto max-w-5xl px-5 pt-28 pb-12 transition-all md:px-10">
+      <main className="mx-auto max-w-6xl px-3 pt-28 pb-12 transition-all md:px-10 space-y-2">
+        <p className="text-sm">STEP 2 OF 3</p>
         <h1 className="mb-3 text-3xl font-medium">Choose the plan that is right for you</h1>
         <ul>
           <li className="flex items-center gap-x-2 text-lg">
@@ -65,7 +67,7 @@ function Plans({ products }: Props) {
           </li>
         </ul>
         <div className="mt-4 flex flex-col space-y-4">
-          <div className="flex w-full items-center justify-end self-end md:w-3/5">
+          <div className="flex w-full items-center justify-end self-end md:w-4/6">
             {products.map((product) => (
               <div
                 className={`planBox ${
@@ -80,7 +82,23 @@ function Plans({ products }: Props) {
             ))}
           </div>
           <Table products={products} selectedPlan={selectedPlan} />
-
+          <div className="w-9/12">
+            <small>
+              HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject to your
+              internet
+              service and device capabilities.
+              Not all content is available in all resolutions.
+              See our Terms of Use for more details.
+            </small>
+            <br />
+            {' '}
+            <br />
+            <small>
+              Only people who live with you may use your account. Watch on 4
+              different devices at the same time with Premium, 2 with Standard,
+              and 1 with Basic and Mobile.
+            </small>
+          </div>
           <button
             type="button"
             onClick={() => Router.push('/signup/howtopay')}
@@ -92,11 +110,12 @@ function Plans({ products }: Props) {
             {isBillingLoading ? (
               <Loader color="dark:fill-gray-300" />
             ) : (
-              'Subscribe'
+              'Next'
             )}
           </button>
         </div>
       </main>
+      <SignupFooter />
     </div>
   );
 }

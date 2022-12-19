@@ -4,10 +4,14 @@ import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Link from 'next/link';
 import { CheckIcon } from '@heroicons/react/outline';
+import {
+  FaCcMastercard, FaCcVisa, FaChevronRight, FaCreditCard,
+} from 'react-icons/fa';
 import Router from 'next/router';
 import useAuth from '../../hooks/useAuth';
 import Welcome from '../../components/Welcome';
 import HeaderSign from '../../components/HeaderSign';
+import SignupFooter from '../../components/SignupFooter';
 
 function HowToPay() {
   return (
@@ -18,10 +22,10 @@ function HowToPay() {
       </Head>
       <HeaderSign />
 
-      <main>
+      <main className="content-center mt-52 pb-20">
         <div className="w-11/12  flex flex-col items-center justify-center mx-auto">
           <div
-            className="relative min-w-[20px] cursor-pointer transition duration-200 ease-out md:min-w-[30px] md:hover:scale-105"
+            className="relative min-w-[20px] cursor-pointer transition duration-200 ease-out md:min-w-[30px] md:hover:scale-105 pb-10"
             aria-hidden="true"
           >
             <img
@@ -35,16 +39,30 @@ function HowToPay() {
           <p className="text-1xl text-center">Your payment is encrypted and you can change how you pay anytime.</p>
           <p className="text-1xl text-center font-semibold">Secure for peace of mind.</p>
           <p className="text-1xl text-center font-semibold pb-8">Cancel easily online.</p>
-          <button
-            type="button"
-            onClick={() => Router.push('/')}
-            className="w-full rounded bg-[#E50914] py-3 font-semibold"
-          >
-            Make Payment
-          </button>
+          <div className="w-full text-right">
+            <p className="text-sm">End-to-end encrypted</p>
+            <button
+              type="button"
+              onClick={() => Router.push('/signup/paymentform')}
+              className="w-full rounded border-solid border-2 py-4 px-3 font-semibold flex justify-start p-2 flow-root"
+            >
+
+              <div className="flex flex-row float-left">
+                Credit or Debit Card
+                <FaCcVisa className=" w-8  h-6" />
+                <FaCcMastercard className=" w-8  h-6" />
+                <FaCreditCard className=" w-8  h-6" />
+              </div>
+              <div className="float-right">
+                <FaChevronRight />
+              </div>
+
+            </button>
+          </div>
+
         </div>
       </main>
-
+      <SignupFooter />
     </div>
   );
 }

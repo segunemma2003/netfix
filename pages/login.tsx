@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import Router from 'next/router';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -53,7 +55,7 @@ function Login() {
       />
 
       <form
-        className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
+        className="relative top-20 space-y-8 rounded bg-black/75 py-20 px-32 md:mt-0 md:max-w-md md:px-14 "
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-4xl font-semibold">Sign In</h1>
@@ -95,6 +97,20 @@ function Login() {
             )}
           </label>
         </div>
+        <div className="w-full flex flex-row justify-between">
+          <div className="flex flex-row space-x-2 items-center">
+            <input
+              type="checkbox"
+            />
+            <p>Remember me</p>
+          </div>
+          <Link
+            href="#"
+          >
+            Need help?
+          </Link>
+        </div>
+
         <button
           className="w-full rounded bg-[#E50914] py-3 font-semibold"
           onClick={() => setLogin(true)}
@@ -113,7 +129,70 @@ function Login() {
             Sign up now
           </button>
         </div>
+        <p className="text-xs">
+          This page is protected by Google reCAPTCHA
+          to ensure you are not a bot. Learn more.
+        </p>
       </form>
+      <div className="w-full relative top-20 px-20 flex flex-col bg-black/75 space-y-8 py-8 mt-auto">
+        <Link
+          href="#"
+        >
+          Questions? Contact us.
+        </Link>
+        <div className="flex flex-row space-x-32 text-xs">
+          <div className="flex flex-col space-y-2">
+            <Link
+              href="#"
+            >
+              FAQ
+
+            </Link>
+            <Link
+              href="#"
+            >
+              Privacy
+
+            </Link>
+          </div>
+          <div className="flex flex-col space-y-2">
+            <Link
+              href="#"
+            >
+              Help Center
+
+            </Link>
+            <Link
+              href="#"
+            >
+              Cookie Preferences
+
+            </Link>
+          </div>
+          <div className="flex flex-col space-y-2">
+            <Link
+              href="#"
+            >
+              Netflix Shop
+
+            </Link>
+            <Link
+              href="#"
+            >
+              Corporate Information
+
+            </Link>
+          </div>
+          <div className="flex flex-col space-y-2">
+            <Link
+              href="#"
+            >
+              Terms of Use
+
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

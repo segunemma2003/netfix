@@ -1,4 +1,7 @@
 import { CheckIcon } from '@heroicons/react/outline';
+import {
+  FaDesktop, FaMobile, FaTablet, FaTv,
+} from 'react-icons/fa';
 import { Product } from '../typings';
 
 interface Props {
@@ -9,7 +12,7 @@ interface Props {
 function Table({ products, selectedPlan }: Props) {
   return (
     <table>
-      <tbody className="divide-y divide-[gray]">
+      <tbody className="divide-y divide-[gray] space-y-4">
         <tr className="tableRow">
           <td className="tableDataTitle">Monthly price</td>
           {products.map((product) => (
@@ -21,7 +24,8 @@ function Table({ products, selectedPlan }: Props) {
               }`}
               key={product.id}
             >
-              USD
+              $
+              {' '}
               {product.price}
             </td>
           ))}
@@ -57,20 +61,49 @@ function Table({ products, selectedPlan }: Props) {
           ))}
         </tr>
         <tr className="tableRow">
-          <td className="tableDataTitle">
-            Watch on your TV, computer, mobile phone and tablet
+          <td className="tableDataTitle whitespace-nowrap place-self-start">
+            Devices you can use to watch
           </td>
           {products.map((product) => (
             <td
-              className={`tableDataFeature ${
+              className={`tableDataFeature place-self-start ${
                 selectedPlan?.id === product.id
                   ? 'text-[#E50914]'
                   : 'text-[gray]'
               }`}
               key={product.id}
             >
-              {product.portability === true && (
-                <CheckIcon className="inline-block h-8 w-8" />
+              {product.name === 'Mobile' ? (
+                <div className="  flex flex-col place-content-start space-y-3">
+                  <div className="flex flex-col justify-self-start items-center space-y-2">
+                    <FaMobile className="inline-block h-8 w-8" />
+                    <p>Phone</p>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <FaTablet className="inline-block h-8 w-8" />
+                    <p>Tablet</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col space-y-3 items-center">
+
+                  <div className="flex flex-col items-center space-y-2">
+                    <FaMobile className="inline-block h-8 w-8" />
+                    <p>Phone</p>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <FaTablet className="inline-block h-8 w-8" />
+                    <p>Tablet</p>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <FaDesktop className="inline-block h-8 w-8" />
+                    <p>Computer</p>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <FaTv className="inline-block h-8 w-8" />
+                    <p>Tv</p>
+                  </div>
+                </div>
               )}
             </td>
           ))}

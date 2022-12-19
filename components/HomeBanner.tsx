@@ -16,12 +16,13 @@ function HomeBanner() {
     return Router.push('/signup');
   };
   return (
-    <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[100vh] lg:justify-center lg:pb-12">
-      <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen">
+    <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[100vh]  lg:justify-center lg:pb-12">
+      <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen  ">
         <Image
           src="https://rb.gy/3ewa1y"
           layout="fill"
           alt="dd"
+          className="-z-10 !hidden opacity-30 sm:!inline"
           objectFit="cover"
         />
       </div>
