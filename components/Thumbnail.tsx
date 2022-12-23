@@ -33,7 +33,7 @@ function Thumbnail({ movie }: Props) {
         />
 
       </div>
-      <div className="w-full h-16 whitespace-nowrap px-2 py-2 bg-[#333333]">
+      <div className="w-full h-16 whitespace-nowrap px-2  overflow-hidden py-2 bg-[#333333]">
         <p>
           <b>Title: </b>
           {movie.title || movie.name}

@@ -4,7 +4,7 @@ import Router from 'next/router';
 import { useEffect } from 'react';
 import Banner from '../components/Banner';
 import Header from '../components/Header';
-import Cols from '../components/Cols';
+import Row from '../components/Row';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
@@ -57,12 +57,20 @@ function Home({
       {/* <Header /> */}
       <div className="flex flex-row h-full">
         <NewHeaders />
-        <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-20 w-screen">
+        <main className="relative pl-4 pt-8 pb-24 lg:space-y-24 lg:pl-24 w-screen">
           {/* <Banner
             netflixOriginals={netflixOriginals}
           /> */}
-          <section className="pt-8 md:space-y-28">
-            <Cols movies={trendingNow} />
+          <section className="md:space-y-28">
+            <Row title="New on Netflix" movies={trendingNow} />
+            <Row title="Worth the Wait" movies={topRated} />
+            <Row title="Top 10 Movies Today on Netflix" movies={actionMovies} />
+            {/* My List */}
+
+            <Row title="Coming this Week" movies={comedyMovies} />
+            <Row title="Top 10 Series Today on Netflix" movies={horrorMovies} />
+            <Row title="Coming Next Week" movies={romanceMovies} />
+            {/* <Row title="Documentaries" movies={documentaries} /> */}
           </section>
         </main>
 

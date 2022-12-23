@@ -36,7 +36,9 @@ export default function Home() {
               layout="fill"
               alt="hj"
             />
+            
           </div>
+
         </div>
         <hr />
         <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">

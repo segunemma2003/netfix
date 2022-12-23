@@ -28,7 +28,7 @@ function NewHeaders() {
   return (
     <aside className="h-full w-fit pt-32 fixed opacity-60 bg-black" aria-label="Sidebar">
       <div className="px-3 py-4 overflow-y-auto rounded  dark:bg-gray-800">
-        <ul className="space-y-5 mr-5">
+        <ul className="space-y-5">
           <li>
             <Link
               href="#"
@@ -48,8 +48,8 @@ function NewHeaders() {
           </li>
           <li>
             <Link
-              href="/"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              href="#"
+              className="flex cursor-pointer items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

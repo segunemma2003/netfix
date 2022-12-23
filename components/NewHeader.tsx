@@ -26,9 +26,9 @@ function NewHeader() {
   }, []);
 
   return (
-    <aside className="h-full w-fit mr-20 pt-32 fixed opacity-60 bg-black" aria-label="Sidebar">
+    <aside className="h-full w-fit  pt-32 fixed opacity-60 bg-black" aria-label="Sidebar">
       <div className="px-2 py-4 overflow-y-auto rounded  dark:bg-gray-800">
-        <ul className="space-y-5 mr-5">
+        <ul className="space-y-5">
           <li>
             <Link
               href="#"

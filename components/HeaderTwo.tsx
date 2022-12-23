@@ -5,7 +5,11 @@ import useAuth from '../hooks/useAuth';
 import BasicMenu from './BasicMenu';
 import MenuDropdown from './MenuDropdown';
 
-function HeaderTwo() {
+interface Props {
+  name:string
+}
+
+function HeaderTwo({name}: Props) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user } = useAuth();
 
@@ -26,11 +30,23 @@ function HeaderTwo() {
   }, []);
 
   return (
-    <header className={`${isScrolled && 'bg-[#141414]'}`}>
+    <>
+    <header className={`px-24 ${isScrolled && 'bg-[#141414]'}`}>
       <div className=" flex flex-row items-center space-x-2 md:space-x-10">
         <h1 className="text-2xl font-bold">
-          Tv Shows
+          {name}
         </h1>
+
+            <div class="">
+              <select class="bg-transparent rounded border border-white px-4 py-1  text-white" name="" id="cars">
+
+                {/* <span class="text-black"> */}
+                  <option value="">Genres</option>
+                  <option value="">हिन्दी</option>
+                {/* </span> */}
+              </select>
+
+            </div>
         {/* <div>        
           <select multiple id="countries_multiple" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <option selected>Choose countries</option>
@@ -52,6 +68,8 @@ function HeaderTwo() {
       </div>
       
     </header>
+ 
+    </>
   );
 }
 
