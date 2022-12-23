@@ -6,7 +6,7 @@ import useAuth from '../hooks/useAuth';
 import BasicMenu from './BasicMenu';
 import MenuDropdown from './MenuDropdown';
 
-function NewHeader() {
+function NewHeaders() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user } = useAuth();
 
@@ -26,8 +26,8 @@ function NewHeader() {
   }, []);
 
   return (
-    <aside className="h-full w-fit mr-20 pt-32 fixed opacity-60 bg-black" aria-label="Sidebar">
-      <div className="px-2 py-4 overflow-y-auto rounded  dark:bg-gray-800">
+    <aside className="h-full w-fit pt-32 fixed opacity-60 bg-black" aria-label="Sidebar">
+      <div className="px-3 py-4 overflow-y-auto rounded  dark:bg-gray-800">
         <ul className="space-y-5 mr-5">
           <li>
             <Link
@@ -138,4 +138,4 @@ function NewHeader() {
   );
 }
 
-export default NewHeader;
+export default NewHeaders;

@@ -12,7 +12,7 @@ import { modalState } from '../atoms/modelAtom';
 import Modal from '../components/Modal';
 import Plans from '../components/Plans';
 import productss from './api/products';
-import NewHeader from '../components/NewHeader';
+import NewHeaders from '../components/NewHeaders';
 
 interface Props {
   netflixOriginals: Movie[]
@@ -56,11 +56,11 @@ function Home({
 
       {/* <Header /> */}
       <div className="flex flex-row h-full">
-        <NewHeader />
-        <main className="relative  pl-20 pb-24 lg:space-y-24 lg:pl-20 w-screen">
-          <Banner
+        <NewHeaders />
+        <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16 w-screen">
+          {/* <Banner
             netflixOriginals={netflixOriginals}
-          />
+          /> */}
           <section className="md:space-y-28">
             <Row title="Trending Now" movies={trendingNow} />
             <Row title="Top Rated" movies={topRated} />

@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { useRecoilValue } from 'recoil';
 import Router from 'next/router';
 import { useEffect } from 'react';
-import Banner from '../components/Banner';
-import Header from '../components/Header';
+import BannerTwo from '../components/BannerTwo';
+import HeaderTwo from '../components/HeaderTwo';
 import Row from '../components/Row';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
@@ -26,7 +26,7 @@ interface Props {
   products: Product[]
 }
 
-function Home({
+function Tv({
   netflixOriginals,
   actionMovies,
   comedyMovies,
@@ -54,23 +54,23 @@ function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Header /> */}
+      <HeaderTwo />
       <div className="flex flex-row h-full">
         <NewHeader />
-        <main className="relative  pl-20 pb-24 lg:space-y-24 lg:pl-20 w-screen">
-          <Banner
+        <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16 w-screen">
+          <BannerTwo
             netflixOriginals={netflixOriginals}
           />
           <section className="md:space-y-28">
             <Row title="Trending Now" movies={trendingNow} />
             <Row title="Top Rated" movies={topRated} />
-            <Row title="Action Thrillers" movies={actionMovies} />
+            <Row title="Action Series" movies={actionMovies} />
             {/* My List */}
 
             <Row title="Comedies" movies={comedyMovies} />
-            <Row title="Scary Movies" movies={horrorMovies} />
-            <Row title="Romance Movies" movies={romanceMovies} />
-            <Row title="Documentaries" movies={documentaries} />
+            <Row title="Scary Series" movies={horrorMovies} />
+            <Row title="Romance Series" movies={romanceMovies} />
+            {/* <Row title="Documentaries" movies={documentaries} /> */}
           </section>
         </main>
 
@@ -80,7 +80,7 @@ function Home({
   );
 }
 
-export default Home;
+export default Tv;
 
 export const getServerSideProps = async () => {
   const products:Product[] = productss;
