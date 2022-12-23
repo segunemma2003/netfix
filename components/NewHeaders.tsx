@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { SearchIcon, BellIcon } from '@heroicons/react/solid';
 // import a from 'next/a';
-import Router from 'nex/router';
+// import Router from 'nex/router';
 import { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import BasicMenu from './BasicMenu';
@@ -67,7 +67,7 @@ function NewHeaders() {
           <li>
             <a
               href="/tv"
-              onClick={()=>Router.push('/tv')}
+              // onClick={()=>Router.push('/tv')}
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg
