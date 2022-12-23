@@ -45,7 +45,6 @@ function VideoPlayer() {
   return (
     <ReactNetflixPlayer
       src="https://www.youtube.com/watch?v=mKRYPFKQdZg"
-      playerLanguage="en"
     />
   );
 }
