@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { SearchIcon, BellIcon } from '@heroicons/react/solid';
-import a from 'next/a';
+// import a from 'next/a';
 import Router from 'nex/router';
 import { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
