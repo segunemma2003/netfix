@@ -1,12 +1,10 @@
-import React from 'react'
+import React from 'react';
 import VideoPlayer from '../components/VideoPlayer';
 
 function videoread() {
   return (
-   <>
-   <VideoPlayer  />
-   </>
-  )
+    <VideoPlayer />
+  );
 }
 
-export default videoread
+export default videoread;

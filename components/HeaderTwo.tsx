@@ -9,7 +9,7 @@ interface Props {
   name:string
 }
 
-function HeaderTwo({name}: Props) {
+function HeaderTwo({ name }: Props) {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user } = useAuth();
 
@@ -30,34 +30,19 @@ function HeaderTwo({name}: Props) {
   }, []);
 
   return (
-    <>
     <header className={`px-24 ${isScrolled && 'bg-[#141414]'}`}>
       <div className=" flex flex-row items-center space-x-2 md:space-x-10">
         <h1 className="text-2xl font-bold">
           {name}
         </h1>
-
-            <div class="">
-              <select class="bg-transparent rounded border border-white px-4 py-1  text-white" name="" id="cars">
-
-                {/* <span class="text-black"> */}
-                  <option value="">Genres</option>
-                  <option value="">हिन्दी</option>
-                {/* </span> */}
-              </select>
-
-            </div>
-        {/* <div>        
-          <select multiple id="countries_multiple" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option selected>Choose countries</option>
-            <option value="US">United States</option>
-            <option value="CA">Canada</option>
-            <option value="FR">France</option>
-            <option value="DE">Germany</option>
+        <div className="">
+          <select className="bg-transparent rounded border border-white px-4 py-1  text-white" name="" id="cars">
+            <option value="">Genres</option>
+            <option value="">हिन्दी</option>
           </select>
-        </div> */}
+        </div>
       </div>
-      <div className="flex items-center space-x-4 text-sm font-light">  
+      <div className="flex items-center space-x-4 text-sm font-light">
         <Link href="/account">
           <img
             src="https://rb.gy/g1pwyx"
@@ -66,10 +51,7 @@ function HeaderTwo({name}: Props) {
           />
         </Link>
       </div>
-      
     </header>
- 
-    </>
   );
 }
 

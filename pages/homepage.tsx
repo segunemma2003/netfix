@@ -36,7 +36,7 @@ export default function Home() {
               layout="fill"
               alt="hj"
             />
-            
+
           </div>
 
         </div>

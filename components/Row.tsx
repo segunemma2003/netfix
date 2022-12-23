@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import React, { useRef, useState } from 'react';
 import { Movie } from '../typings';

@@ -54,7 +54,7 @@ function Tv({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HeaderTwo name="Tv Series"/>
+      <HeaderTwo name="Tv Series" />
       <div className="flex flex-row h-full">
         <NewHeader />
         <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-24 w-screen">

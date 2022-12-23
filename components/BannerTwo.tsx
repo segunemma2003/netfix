@@ -3,11 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { InformationCircleIcon } from '@heroicons/react/solid';
 import { useRecoilState } from 'recoil';
+import Router from 'next/router';
 import { Movie } from '../typings';
 import { baseUrl } from '../constants/movie';
 import { modalState, movieState } from '../atoms/modelAtom';
-import {VideoPlayer} from './VideoPlayer';
-import Router from 'next/router'
 
 interface Props {
     netflixOriginals:Movie[]
@@ -24,9 +23,7 @@ function BannerTwo({ netflixOriginals }: Props) {
     );
   }, [netflixOriginals]);
 
-  const showMovie = (movied) => {
-   return Router.push('/videoread')
-  }
+  const showMovie = () => Router.push('/videoread');
 
   return (
     <div className="flex pt-10 flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
@@ -38,7 +35,7 @@ function BannerTwo({ netflixOriginals }: Props) {
           objectFit="cover"
         />
       </div>
-      
+
       <h1 className="text-2xl font-bold md:text-4xl lg:text-7xl">
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
@@ -51,7 +48,7 @@ function BannerTwo({ netflixOriginals }: Props) {
           type="button"
           onClick={() => {
             setCurrentMovie(movie);
-            showMovie(movie)
+            showMovie();
           }}
         >
           <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
