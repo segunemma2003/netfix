@@ -9,7 +9,7 @@ import MenuDropdown from './MenuDropdown';
 
 function NewHeaders() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,12 +27,12 @@ function NewHeaders() {
   }, []);
 
   return (
-    <aside className="h-full w-fit pt-32 fixed opacity-60 bg-black" aria-label="Sidebar">
+    <aside className="h-full w-fit pt-32 fixed z-50 opacity-60 bg-black" aria-label="Sidebar">
       <div className="px-3 py-4 overflow-y-auto rounded  dark:bg-gray-800">
         <ul className="space-y-5">
           <li>
             <Link
-              href="#"
+              href="/search"
               className="flex items-center p-2 text-base font-normal text-gray-900
               rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
@@ -49,7 +49,7 @@ function NewHeaders() {
           </li>
           <li>
             <Link
-              href="#"
+              href="/"
               className="flex cursor-pointer items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg
@@ -65,23 +65,25 @@ function NewHeaders() {
             </Link>
           </li>
           <li>
-            <Link
-              href="/tv"
-              // onClick={()=>Router.push('/tv')}
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+            <a>
+              <Link
+                href="/tv"
+                // onClick={()=>Router.push('/tv')}
+                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />
-              </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />
+                </svg>
 
-            </Link>
+              </Link>
+            </a>
           </li>
           <li>
             <Link
@@ -103,7 +105,7 @@ function NewHeaders() {
           </li>
           <li>
             <Link
-              href="/mylist"
+              href="/movies"
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
@@ -114,7 +116,7 @@ function NewHeaders() {
           </li>
           <li>
             <Link
-              href="#"
+              href="mylist"
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
@@ -126,6 +128,7 @@ function NewHeaders() {
           <li>
             <Link
               href="#"
+              onClick={() => logout()}
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">

@@ -8,7 +8,7 @@ import MenuDropdown from './MenuDropdown';
 
 function NewHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,14 +26,14 @@ function NewHeader() {
   }, []);
 
   return (
-    <aside className="h-full w-fit  pt-32 fixed opacity-60 bg-black" aria-label="Sidebar">
+    <aside className="h-screen fixed  z-50 w-fit pt-32 opacity-60 bg-black" aria-label="Sidebar">
       <div className="px-2 py-4 overflow-y-auto rounded  dark:bg-gray-800">
         <ul className="space-y-5">
           <li>
             <Link
-              href="#"
+              href="/search"
               className="flex items-center p-2 text-base font-normal text-gray-900
-              rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,6 @@ function NewHeader() {
               >
                 <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clipRule="evenodd" />
               </svg>
-
             </Link>
           </li>
           <li>
@@ -67,6 +66,7 @@ function NewHeader() {
             <Link
               href="/tv"
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              passHref
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,6 @@ function NewHeader() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" />
               </svg>
-
             </Link>
           </li>
           <li>
@@ -101,7 +100,7 @@ function NewHeader() {
           </li>
           <li>
             <Link
-              href="/mylist"
+              href="/movies"
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
@@ -112,7 +111,7 @@ function NewHeader() {
           </li>
           <li>
             <Link
-              href="#"
+              href="/mylist"
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
@@ -124,6 +123,7 @@ function NewHeader() {
           <li>
             <Link
               href="#"
+              onClick={() => logout()}
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
