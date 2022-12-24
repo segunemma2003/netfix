@@ -13,7 +13,7 @@ function ColSearch({ movies }: Props) {
   return (
     <div className="h-40 space-y-0.5 md:space-y-2">
       <h1 className="w-56 whitespace-nowrap cursor-pointer text-lg font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">Search</h1>
-      <div className="space-x-4">
+      <div className="space-x-4 w-5/12 mx-auto border rounded">
         <input type="search" className="w-full bg-transparent shadow border-1 border-white rounded border-0 p-3" placeholder="Search by name..." />
       </div>
       <div className=" md:-ml-2">
