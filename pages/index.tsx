@@ -13,6 +13,8 @@ import Modal from '../components/Modal';
 import Plans from '../components/Plans';
 import productss from './api/products';
 import NewHeader from '../components/NewHeader';
+import Cols from '../components/Cols';
+import Colss from '../components/Colss';
 
 interface Props {
   netflixOriginals: Movie[]
@@ -61,16 +63,16 @@ function Home({
           <Banner
             netflixOriginals={netflixOriginals}
           />
-          <section className="md:space-y-28">
-            <Row title="Trending Now" movies={trendingNow} />
-            <Row title="Top Rated" movies={topRated} />
-            <Row title="Action Thrillers" movies={actionMovies} />
+          <section className="md:space-y-10">
+            <Colss title="Trending Now" movies={trendingNow} />
+            <Colss title="Top Rated" movies={topRated} />
+            <Colss title="Action Thrillers" movies={actionMovies} />
             {/* My List */}
 
-            <Row title="Comedies" movies={comedyMovies} />
-            <Row title="Scary Movies" movies={horrorMovies} />
-            <Row title="Romance Movies" movies={romanceMovies} />
-            <Row title="Documentaries" movies={documentaries} />
+            <Colss title="Comedies" movies={comedyMovies} />
+            <Colss title="Scary Movies" movies={horrorMovies} />
+            <Colss title="Romance Movies" movies={romanceMovies} />
+            <Colss title="Documentaries" movies={documentaries} />
           </section>
         </main>
 

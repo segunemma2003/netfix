@@ -1,6 +1,7 @@
 import { DocumentData } from 'firebase/firestore';
 import Image from 'next/image';
 import React from 'react';
+import { BsDot, BsFillStarFill } from 'react-icons/bs';
 import { useRecoilState } from 'recoil';
 import { modalState, movieState } from '../atoms/modelAtom';
 import { Movie } from '../typings';
@@ -33,15 +34,28 @@ function Thumbnail({ movie }: Props) {
         />
 
       </div>
-      <div className="w-full h-16 whitespace-nowrap px-2  overflow-hidden py-2 bg-[#333333]">
-        <p>
-          <b>Title: </b>
+      <div className="w-full text-sm h-16 whitespace-nowrap px-2  overflow-hidden py-2 bg-[#333333]">
+        <div>
           {movie.title || movie.name}
-        </p>
-        <p>
-          <b>Rating: </b>
-          {Math.floor(movie.vote_average)}
-        </p>
+        </div>
+        <div className="flex flex-row space-x-2">
+          <div className="flex flex-row space-x-2 align-items-center justify-center">
+            <BsFillStarFill
+              className="w-4 h-4"
+            />
+            <p>
+              {' '}
+              {Math.floor(movie.vote_average)}
+            </p>
+          </div>
+          <div className="flex flex-row space-x-1 align-items-center justify-center">
+            <BsDot
+              className="w-5 h-5"
+            />
+            <p>{ movie?.release_date || movie.first_air_date}</p>
+          </div>
+
+        </div>
       </div>
     </div>
   );
