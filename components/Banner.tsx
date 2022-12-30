@@ -42,7 +42,7 @@ function Banner({ netflixOriginals }: Props) {
       </div>
       <div className=" h-fit flex flex-row">
         <div className="w-1/2 grid grid-cols-1 gap-4 content-between">
-          <div>
+          <div className="space-y-2">
             <h1 className="text-2xl text-red-800 font-bold md:text-3xl lg:text-6xl">
               {movie?.title || movie?.name || movie?.original_name}
             </h1>
