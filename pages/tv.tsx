@@ -38,7 +38,7 @@ function Tv({
   products,
 }:Props) {
   const { loading, user } = useAuth();
-  const showModal = useRecoilValue(modalState);
+  const showModal = useRecoilValue(modalStateTwo);
   const subscription = false;
 
   if (loading || subscription === null) return null;
@@ -74,7 +74,7 @@ function Tv({
           </section>
         </main>
 
-        {showModal && <Modal />}
+        {showModal && <ModalTwo />}
       </div>
     </div>
   );
