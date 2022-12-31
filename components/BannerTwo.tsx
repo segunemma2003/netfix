@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil';
 import Router from 'next/router';
 import { Movie } from '../typings';
 import { baseUrl } from '../constants/movie';
-import { modalState, movieState } from '../atoms/modelAtom';
+import { modalState, modalStateTwo, movieState } from '../atoms/modelAtom';
 
 interface Props {
     netflixOriginals:Movie[]
@@ -16,6 +16,7 @@ function BannerTwo({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie| null>(null);
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
   const [showModal, setShowModal] = useRecoilState(modalState);
+  const [showModalTwo, setShowModalTwo] = useRecoilState(modalStateTwo);
 
   useEffect(() => {
     setMovie(
@@ -23,7 +24,11 @@ function BannerTwo({ netflixOriginals }: Props) {
     );
   }, [netflixOriginals]);
 
-  const showMovie = () => Router.push('/videoread');
+  const showMovie = () => {
+    const strMovie:string = JSON.stringify(movie);
+    localStorage.setItem('movie', strMovie);
+    Router.push('/videoread');
+  };
 
   return (
     <div className="flex pt-10 flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
@@ -59,7 +64,7 @@ function BannerTwo({ netflixOriginals }: Props) {
           type="button"
           onClick={() => {
             setCurrentMovie(movie);
-            setShowModal(true);
+            setShowModalTwo(true);
           }}
         >
           More Info

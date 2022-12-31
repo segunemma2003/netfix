@@ -2,14 +2,14 @@ import Head from 'next/head';
 import { useRecoilValue } from 'recoil';
 import Router from 'next/router';
 import { useEffect } from 'react';
-import BannerTwo from '../components/BannerTwo';
+import BannerThree from '../components/BannerThree';
 import HeaderTwo from '../components/HeaderTwo';
 import Row from '../components/Row';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
-import { modalState } from '../atoms/modelAtom';
-import Modal from '../components/Modal';
+import { modalStateTwo } from '../atoms/modelAtom';
+import ModalTwo from '../components/ModalTwo';
 import Plans from '../components/Plans';
 import productss from './api/products';
 import NewHeader from '../components/NewHeader';
@@ -38,7 +38,7 @@ function Tv({
   products,
 }:Props) {
   const { loading, user } = useAuth();
-  const showModal = useRecoilValue(modalState);
+  const showModal = useRecoilValue(modalStateTwo);
   const subscription = false;
 
   if (loading || subscription === null) return null;
@@ -58,7 +58,7 @@ function Tv({
       <div className="flex flex-row h-full">
         <NewHeader />
         <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-24 w-screen">
-          <BannerTwo
+          <BannerThree
             netflixOriginals={netflixOriginals}
           />
           <section className="md:space-y-28">
@@ -74,7 +74,7 @@ function Tv({
           </section>
         </main>
 
-        {showModal && <Modal />}
+        {showModal && <ModalTwo />}
       </div>
     </div>
   );

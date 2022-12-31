@@ -8,8 +8,8 @@ import Row from '../components/Row';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
-import { modalState } from '../atoms/modelAtom';
-import Modal from '../components/Modal';
+import { modalStateTwo } from '../atoms/modelAtom';
+import ModalTwo from '../components/ModalTwo';
 import Plans from '../components/Plans';
 import productss from './api/products';
 import NewHeaders from '../components/NewHeaders';
@@ -38,7 +38,7 @@ function Home({
   products,
 }:Props) {
   const { loading, user } = useAuth();
-  const showModal = useRecoilValue(modalState);
+  const showModal = useRecoilValue(modalStateTwo);
   const subscription = false;
 
   if (loading || subscription === null) return null;
@@ -74,7 +74,7 @@ function Home({
           </section>
         </main>
 
-        {showModal && <Modal />}
+        {showModal && <ModalTwo />}
       </div>
     </div>
   );

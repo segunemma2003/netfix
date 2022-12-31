@@ -8,13 +8,14 @@ import Row from '../components/Row';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
-import { modalState } from '../atoms/modelAtom';
+import { modalState, modalStateTwo } from '../atoms/modelAtom';
 import Modal from '../components/Modal';
 import Plans from '../components/Plans';
 import productss from './api/products';
 import NewHeader from '../components/NewHeader';
 import Cols from '../components/Cols';
 import Colss from '../components/Colss';
+import ModalTwo from '../components/ModalTwo';
 
 interface Props {
   netflixOriginals: Movie[]
@@ -41,6 +42,7 @@ function Home({
 }:Props) {
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalState);
+  const showModalTwo = useRecoilValue(modalStateTwo);
   const subscription = false;
 
   if (loading || subscription === null) return null;
@@ -76,7 +78,8 @@ function Home({
           </section>
         </main>
 
-        {showModal && <Modal />}
+        {/* {showModal && <Modal />} */}
+        {showModalTwo && <ModalTwo />}
       </div>
     </div>
   );

@@ -1,7 +1,13 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
-import { ReactNetflixPlayer } from 'react-netflix-player';
 import { useRecoilState } from 'recoil';
+import ReactPlayer from 'react-player/lazy';
+import {
+  CheckIcon, PlusIcon, ThumbUpIcon, VolumeOffIcon,
+} from '@heroicons/react/solid';
+import { VolumeUpIcon } from '@heroicons/react/outline';
+import { FaPlay } from 'react-icons/fa';
 import { Element, Genre, Movie } from '../typings';
 import { modalState, movieState } from '../atoms/modelAtom';
 
@@ -10,12 +16,16 @@ interface Props {
 }
 
 function VideoPlayer() {
-  const [movie, setMovie] = useRecoilState(movieState);
+  let [movie, setMovie] = useRecoilState(movieState);
   const [trailer, setTrailer] = useState('');
   const [genres, setGenres] = useState<Genre[]>([]);
+  const [muted, setMuted] = useState(false);
+  const [addedToList, setAddedToList] = useState(false);
 
   useEffect(() => {
-    console.log(movie);
+    const strMovie:string = localStorage.getItem('movie') || '';
+    movie = JSON.parse(strMovie);
+    // setMovie(movie);
     if (!movie) return;
 
     async function fetchMovie() {
@@ -43,13 +53,17 @@ function VideoPlayer() {
   }, [movie]);
 
   return (
-    <ReactNetflixPlayer
-      src="https://www.youtube.com/watch?v=mKRYPFKQdZg"
-      // playerLanguage="en"
-      fullPlayer
-      autoPlay
-      startPosition={0}
-    />
+    <div className="w-screen h-screen">
+      <ReactPlayer
+        url={`https://www.youtube.com/watch?v=${trailer}`}
+        width="100%"
+        height="100%"
+        controls
+        style={{ position: 'absolute', top: '0', left: '0' }}
+        playing
+        muted={muted}
+      />
+    </div>
   );
 }
 

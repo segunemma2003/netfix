@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { FaImdb, FaPlay } from 'react-icons/fa';
-import { InformationCircleIcon } from '@heroicons/react/solid';
-import { useRecoilState } from 'recoil';
-import Router from 'next/router';
 import { BsFillCalendar2Fill, BsFillStarFill } from 'react-icons/bs';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { GiTomato } from 'react-icons/gi';
 import { BiTimeFive } from 'react-icons/bi';
+import { InformationCircleIcon } from '@heroicons/react/solid';
+import { useRecoilState } from 'recoil';
+import Router from 'next/router';
 import { Movie } from '../typings';
 import { baseUrl } from '../constants/movie';
 import { modalState, modalStateTwo, movieState } from '../atoms/modelAtom';
@@ -16,7 +16,7 @@ interface Props {
     netflixOriginals:Movie[]
 }
 
-function Banner({ netflixOriginals }: Props) {
+function BannerThree({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie| null>(null);
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
   const [showModal, setShowModal] = useRecoilState(modalState);
@@ -35,16 +35,16 @@ function Banner({ netflixOriginals }: Props) {
   };
 
   return (
-    <div className="flex flex-col space-y-2 px-8 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
+    <div className="flex pt-10 flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
       <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen">
         <Image
           src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
           layout="fill"
-          className="opacity-30"
           alt="dd"
           objectFit="cover"
         />
       </div>
+
       <div className=" h-fit flex flex-row relative top-20 mr-20">
         <div className="w-1/2 grid grid-cols-1 gap-4 content-between">
           <div className="space-y-2">
@@ -162,4 +162,4 @@ function Banner({ netflixOriginals }: Props) {
   );
 }
 
-export default Banner;
+export default BannerThree;

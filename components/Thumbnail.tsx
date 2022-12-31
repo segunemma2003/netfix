@@ -1,9 +1,10 @@
 import { DocumentData } from 'firebase/firestore';
 import Image from 'next/image';
 import React from 'react';
+import Router from 'next/router';
 import { BsDot, BsFillStarFill } from 'react-icons/bs';
 import { useRecoilState } from 'recoil';
-import { modalState, movieState } from '../atoms/modelAtom';
+import { modalState, movieState, modalStateTwo } from '../atoms/modelAtom';
 import { Movie } from '../typings';
 
 interface Props {
@@ -12,8 +13,12 @@ interface Props {
 
 function Thumbnail({ movie }: Props) {
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
-  const [showModal, setShowModal] = useRecoilState(modalState);
-
+  const [showModal, setShowModal] = useRecoilState(modalStateTwo);
+  const showMovie = () => {
+    const strMovie:string = JSON.stringify(movie);
+    localStorage.setItem('movie', strMovie);
+    Router.push('/videoread');
+  };
   return (
     <div className="flex flex-col ">
       <div
@@ -21,6 +26,7 @@ function Thumbnail({ movie }: Props) {
         aria-hidden="true"
         onClick={() => {
           setCurrentMovie(movie);
+          // showMovie();
           setShowModal(true);
         }}
       >
