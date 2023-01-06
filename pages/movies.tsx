@@ -4,7 +4,7 @@ import Router from 'next/router';
 import { useEffect } from 'react';
 import BannerThree from '../components/BannerThree';
 import HeaderTwo from '../components/HeaderTwo';
-import Row from '../components/Row';
+import Colss from '../components/Colss';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
@@ -55,22 +55,22 @@ function Tv({
       </Head>
 
       <HeaderTwo name="Movies" />
-      <div className="flex flex-row h-full">
+      <div className="flex flex-Colss h-full">
         <NewHeader />
         <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-24 w-screen">
           <BannerThree
             netflixOriginals={netflixOriginals}
           />
-          <section className="md:space-y-28">
-            <Row title="Trending Now" movies={trendingNow} />
-            <Row title="Top Rated" movies={topRated} />
-            <Row title="Action Series" movies={actionMovies} />
+          <section className="md:space-y-18 space-y-20">
+            <Colss title="Trending Now" movies={trendingNow} />
+            <Colss title="Top Rated" movies={topRated} />
+            <Colss title="Acftion Series" movies={actionMovies} />
             {/* My List */}
 
-            <Row title="Comedies" movies={comedyMovies} />
-            <Row title="Scary Series" movies={horrorMovies} />
-            <Row title="Romance Series" movies={romanceMovies} />
-            {/* <Row title="Documentaries" movies={documentaries} /> */}
+            <Colss title="Comedies" movies={comedyMovies} />
+            <Colss title="Scary Series" movies={horrorMovies} />
+            <Colss title="Romance Series" movies={romanceMovies} />
+            {/* <Colss title="Documentaries" movies={documentaries} /> */}
           </section>
         </main>
 

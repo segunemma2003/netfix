@@ -65,7 +65,7 @@ function Home({
           <Banner
             netflixOriginals={netflixOriginals}
           />
-          <section className="md:space-y-10">
+          <section className="md:space-y-18 space-y-20">
             <Colss title="Trending Now" movies={trendingNow} />
             <Colss title="Top Rated" movies={topRated} />
             <Colss title="Action Thrillers" movies={actionMovies} />

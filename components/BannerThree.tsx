@@ -72,7 +72,7 @@ function BannerThree({ netflixOriginals }: Props) {
               </div>
             </div>
           </div>
-          <div className="flex space-x-3">
+          <div className="flex space-x-6">
             <button
               className="bannerbutton bg-white text-black"
               type="button"
@@ -144,7 +144,7 @@ function BannerThree({ netflixOriginals }: Props) {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-4 gap-6">
             {
              ['Drama', 'Action', 'Family', 'Series', 'Romance'].map((item, index) => (
                <div className="rounded-lg px-4 py-2 bg-[#393838]">

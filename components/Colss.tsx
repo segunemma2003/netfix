@@ -10,7 +10,7 @@ interface Props {
 function Colss({ movies, title }: Props) {
   return (
     <div className="h-fit space-y-4 md:space-y-2">
-      <h2 className="w-56 whitespace-nowrap cursor-pointer text-lg font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">{ title }</h2>
+      <h2 className="w-56 whitespace-nowrap cursor-pointer text-4xl font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-3xl">{ title }</h2>
       <div className=" md:-ml-2">
 
         <div

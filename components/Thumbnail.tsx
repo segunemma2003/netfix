@@ -20,15 +20,19 @@ function Thumbnail({ movie }: Props) {
     Router.push('/videoread');
   };
   return (
-    <div className="flex flex-col ">
+    <div
+      className="flex flex-col "
+      aria-hidden="true"
+      onClick={() => {
+        setCurrentMovie(movie);
+        showMovie();
+        // setShowModal(true);
+      }}
+
+    >
       <div
         className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
-        aria-hidden="true"
-        onClick={() => {
-          setCurrentMovie(movie);
-          // showMovie();
-          setShowModal(true);
-        }}
+
       >
         <Image
           src={`https://image.tmdb.org/t/p/w500${
@@ -40,11 +44,11 @@ function Thumbnail({ movie }: Props) {
         />
 
       </div>
-      <div className="w-full text-sm h-16 whitespace-nowrap px-2  overflow-hidden py-2 bg-[#333333]">
+      <div className="w-full text-sm h-16 whitespace-nowrap px-2  transition duration-200 ease-out overflow-hidden py-2 bg-[#333333]">
         <div>
           {movie.title || movie.name}
         </div>
-        <div className="flex flex-row space-x-2">
+        <div className="flex flex-row space-x-6">
           <div className="flex flex-row space-x-2 align-items-center justify-center">
             <BsFillStarFill
               className="w-4 h-4"
@@ -54,10 +58,13 @@ function Thumbnail({ movie }: Props) {
               {Math.floor(movie.vote_average)}
             </p>
           </div>
-          <div className="flex flex-row space-x-1 align-items-center justify-center">
-            <BsDot
-              className="w-5 h-5"
-            />
+          <div className="flex flex-row align-items-center justify-center">
+            <div className="flex flex-row">
+              <p>Release</p>
+              <BsDot
+                className="w-5 h-5"
+              />
+            </div>
             <p>{ movie?.release_date || movie.first_air_date}</p>
           </div>
 

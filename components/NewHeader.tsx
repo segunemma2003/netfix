@@ -35,7 +35,7 @@ function NewHeader() {
               href="/search"
               title="search"
               className="flex items-center p-2 text-base font-normal text-gray-900
-              rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+              rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,8 @@ function NewHeader() {
           <li>
             <Link
               href="/"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              title="home"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,8 +67,9 @@ function NewHeader() {
           </li>
           <li>
             <Link
+              title="Tv series"
               href="/tv"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
               passHref
             >
               <svg
@@ -84,8 +86,9 @@ function NewHeader() {
           </li>
           <li>
             <Link
+              title="new movies/ series"
               href="/new"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,8 +105,9 @@ function NewHeader() {
           </li>
           <li>
             <Link
+              title="movies"
               href="/movies"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
                 <path d="M1 12.5A4.5 4.5 0 005.5 17H15a4 4 0 001.866-7.539 3.504 3.504 0 00-4.504-4.272A4.5 4.5 0 004.06 8.235 4.502 4.502 0 001 12.5z" />
@@ -113,8 +117,9 @@ function NewHeader() {
           </li>
           <li>
             <Link
+              title="my list"
               href="/mylist"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
             >
               <HiClipboardList
                 className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -124,9 +129,10 @@ function NewHeader() {
           </li>
           <li>
             <Link
+              title="logout"
               href="#"
               onClick={() => logout()}
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />

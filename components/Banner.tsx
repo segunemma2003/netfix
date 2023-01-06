@@ -72,7 +72,7 @@ function Banner({ netflixOriginals }: Props) {
               </div>
             </div>
           </div>
-          <div className="flex space-x-3">
+          <div className="flex space-x-6">
             <button
               className="bannerbutton bg-white text-black"
               type="button"
@@ -93,7 +93,7 @@ function Banner({ netflixOriginals }: Props) {
               }}
             >
               More Info
-              <InformationCircleIcon className="h-5 w-5 md:h-8 md:w-8" />
+              <InformationCircleIcon className="h-6 w-6 md:h-8 md:w-8" />
             </button>
           </div>
         </div>
@@ -144,7 +144,7 @@ function Banner({ netflixOriginals }: Props) {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-4 gap-6">
             {
              ['Drama', 'Action', 'Family', 'Series', 'Romance'].map((item, index) => (
                <div className="rounded-lg px-4 py-2 bg-[#393838]">

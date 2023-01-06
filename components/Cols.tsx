@@ -11,8 +11,8 @@ function Cols({ movies }: Props) {
   const [isMoved, setIsMoved] = useState(false);
 
   return (
-    <div className="h-40 space-y-0.5 md:space-y-2">
-      <h2 className="w-56 whitespace-nowrap cursor-pointer text-lg font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">My List</h2>
+    <div className="h-40 space-y-0.5 md:space-y-8">
+      <h2 className="w-56 whitespace-nowrap cursor-pointer text-2xl font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">My List</h2>
       <div className="space-x-4">
         <select className="bg-transparent rounded border border-white px-4 py-1  text-white" name="" id="cars">
           <option value="">Name of Artist</option>

@@ -4,7 +4,7 @@ import Router from 'next/router';
 import { useEffect } from 'react';
 import Banner from '../components/Banner';
 import Header from '../components/Header';
-import Row from '../components/Row';
+import Colss from '../components/Colss';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
@@ -55,22 +55,22 @@ function Home({
       </Head>
 
       {/* <Header /> */}
-      <div className="flex flex-row h-full">
+      <div className="flex flex-Colss h-full">
         <NewHeaders />
         <main className="relative pl-4 pt-8 pb-24 lg:space-y-24 lg:pl-24 w-screen">
           {/* <Banner
             netflixOriginals={netflixOriginals}
           /> */}
-          <section className="md:space-y-28">
-            <Row title="New on Netflix" movies={trendingNow} />
-            <Row title="Worth the Wait" movies={topRated} />
-            <Row title="Top 10 Movies Today on Netflix" movies={actionMovies} />
+          <section className="md:space-y-18 space-y-20">
+            <Colss title="New on Netflix" movies={trendingNow} />
+            <Colss title="Worth the Wait" movies={topRated} />
+            <Colss title="Top 10 Movies Today on Netflix" movies={actionMovies} />
             {/* My List */}
 
-            <Row title="Coming this Week" movies={comedyMovies} />
-            <Row title="Top 10 Series Today on Netflix" movies={horrorMovies} />
-            <Row title="Coming Next Week" movies={romanceMovies} />
-            {/* <Row title="Documentaries" movies={documentaries} /> */}
+            <Colss title="Coming this Week" movies={comedyMovies} />
+            <Colss title="Top 10 Series Today on Netflix" movies={horrorMovies} />
+            <Colss title="Coming Next Week" movies={romanceMovies} />
+            {/* <Colss title="Documentaries" movies={documentaries} /> */}
           </section>
         </main>
 
