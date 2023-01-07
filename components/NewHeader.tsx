@@ -3,6 +3,7 @@ import { SearchIcon, BellIcon } from '@heroicons/react/solid';
 import { HiClipboardList } from 'react-icons/hi';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import useAuth from '../hooks/useAuth';
 import BasicMenu from './BasicMenu';
 import MenuDropdown from './MenuDropdown';
@@ -10,7 +11,7 @@ import MenuDropdown from './MenuDropdown';
 function NewHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user, logout } = useAuth();
-
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -34,8 +35,10 @@ function NewHeader() {
             <Link
               href="/search"
               title="search"
-              className="flex items-center p-2 text-base font-normal text-gray-900
-              rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white cursor-pointer"
+              className={`flex items-center p-2 text-base font-normal text-gray-900
+              rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white
+              ${router.asPath === '/search' && 'bg-red-600'}
+              `}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +54,10 @@ function NewHeader() {
             <Link
               href="/"
               title="home"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
+              className={`flex items-center p-2 text-base font-normal text-gray-900
+              rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white
+              ${router.asPath === '/' && 'bg-red-600'}
+              `}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +75,10 @@ function NewHeader() {
             <Link
               title="Tv series"
               href="/tv"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
+              className={`flex items-center p-2 text-base font-normal text-gray-900
+              rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white
+              ${router.asPath === '/tv' && 'bg-red-600'}
+              `}
               passHref
             >
               <svg
@@ -88,7 +97,10 @@ function NewHeader() {
             <Link
               title="new movies/ series"
               href="/new"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
+              className={`flex items-center p-2 text-base font-normal text-gray-900
+              rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white
+              ${router.asPath === '/new' && 'bg-red-600'}
+              `}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +119,10 @@ function NewHeader() {
             <Link
               title="movies"
               href="/movies"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
+              className={`flex items-center p-2 text-base font-normal text-gray-900
+              rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white
+              ${router.asPath === '/movies' && 'bg-red-600'}
+              `}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
                 <path d="M1 12.5A4.5 4.5 0 005.5 17H15a4 4 0 001.866-7.539 3.504 3.504 0 00-4.504-4.272A4.5 4.5 0 004.06 8.235 4.502 4.502 0 001 12.5z" />
@@ -119,7 +134,10 @@ function NewHeader() {
             <Link
               title="my list"
               href="/mylist"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white"
+              className={`flex items-center p-2 text-base font-normal text-gray-900
+              rounded-lg dark:text-white hover:bg-red-600 dark:hover:bg-gray-700 hover:text-white
+              ${router.asPath === '/mylist' && 'bg-red-600'}
+              `}
             >
               <HiClipboardList
                 className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
