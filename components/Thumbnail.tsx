@@ -17,7 +17,7 @@ function Thumbnail({ movie }: Props) {
   const showMovie = () => {
     const strMovie:string = JSON.stringify(movie);
     localStorage.setItem('movie', strMovie);
-    Router.push('/videoread');
+    Router.push('/moviedetails');
   };
   return (
     <div
