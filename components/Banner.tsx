@@ -1,3 +1,6 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable max-len */
+/* eslint-disable no-console */
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { FaImdb, FaPlay } from 'react-icons/fa';
@@ -8,7 +11,7 @@ import { BsFillCalendar2Fill, BsFillStarFill } from 'react-icons/bs';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { GiTomato } from 'react-icons/gi';
 import { BiTimeFive } from 'react-icons/bi';
-import { Movie } from '../typings';
+import { Movie, Genre, Element } from '../typings';
 import { baseUrl } from '../constants/movie';
 import { modalState, modalStateTwo, movieState } from '../atoms/modelAtom';
 
@@ -21,11 +24,34 @@ function Banner({ netflixOriginals }: Props) {
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
   const [showModal, setShowModal] = useRecoilState(modalState);
   const [showModalTwo, setShowModalTwo] = useRecoilState(modalStateTwo);
+  const [genres, setGenres] = useState<Genre[]>([]);
 
   useEffect(() => {
+    const mov = netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)];
     setMovie(
-      netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)],
+      mov,
     );
+    async function fetchMovie() {
+      const data = await fetch(
+        `https:api.themoviedb.org/3/${
+          movie?.media_type === 'tv' ? 'tv' : 'movie'
+        }/${movie?.id}?api_key=${
+          process.env.NEXT_PUBLIC_API_KEY
+        }&language=en-US&append_to_response=videos`,
+      ).then((response) => response.json());
+      console.log(data);
+      if (data?.videos) {
+        console.log(data?.videos);
+        const index = data.videos.results.findIndex(
+          (element: Element) => element.type === 'Trailer',
+        );
+      }
+      if (data?.genres) {
+        setGenres(data.genres);
+      }
+    }
+
+    fetchMovie();
   }, [netflixOriginals]);
 
   const showMovie = () => {
@@ -33,6 +59,15 @@ function Banner({ netflixOriginals }: Props) {
     localStorage.setItem('movie', strMovie);
     Router.push('/videoread');
   };
+  const showMovieDetails = () => {
+    const strMovie:string = JSON.stringify(movie);
+    localStorage.setItem('movie', strMovie);
+    Router.push('/moviedetails');
+  };
+
+  const randomInteger = (min: any) => Math.floor(Math.random() * (9 - min + 1)) + min;
+
+  const randomIntegerTwo = (min: any) => Math.floor(Math.random() * (10000 - min + 1)) + min;
 
   return (
     <div className="flex flex-col space-y-2 px-8 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
@@ -56,13 +91,13 @@ function Banner({ netflixOriginals }: Props) {
                 <BsFillStarFill
                   className="w-5 h-5"
                 />
-                <p>10</p>
+                <p>{Math.floor(movie?.vote_average || 7)}</p>
               </div>
               <div className="flex flex-row space-x-2 align-items-center justify-center">
                 <AiOutlineCalendar
                   className="w-6 h-6"
                 />
-                <p>2017</p>
+                <p>{ movie?.release_date || movie?.first_air_date}</p>
               </div>
               <div className="flex flex-row space-x-2 align-items-center justify-center">
                 <BiTimeFive
@@ -78,7 +113,7 @@ function Banner({ netflixOriginals }: Props) {
               type="button"
               onClick={() => {
                 setCurrentMovie(movie);
-                showMovie();
+                showMovieDetails();
               }}
             >
               <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
@@ -105,8 +140,11 @@ function Banner({ netflixOriginals }: Props) {
                 color="orange"
               />
               <div>
-                <p>10/10</p>
-                <p>6634</p>
+                <p>
+                  {randomInteger(movie?.vote_average)}
+                  /10
+                </p>
+                <p>{randomIntegerTwo(movie?.vote_count)}</p>
                 <p>votes</p>
               </div>
             </div>
@@ -116,8 +154,11 @@ function Banner({ netflixOriginals }: Props) {
                 color="red"
               />
               <div>
-                <p>10/10</p>
-                <p>6634</p>
+                <p>
+                  {randomInteger(movie?.vote_average)}
+                  /10
+                </p>
+                <p>{randomIntegerTwo(movie?.vote_count)}</p>
                 <p>votes</p>
               </div>
             </div>
@@ -127,8 +168,11 @@ function Banner({ netflixOriginals }: Props) {
                 color="orange"
               />
               <div>
-                <p>8/10</p>
-                <p>9243</p>
+                <p>
+                  {randomInteger(movie?.vote_average)}
+                  /10
+                </p>
+                <p>{randomIntegerTwo(movie?.vote_count)}</p>
                 <p>votes</p>
               </div>
             </div>
@@ -138,19 +182,22 @@ function Banner({ netflixOriginals }: Props) {
                 color="red"
               />
               <div>
-                <p>10/10</p>
-                <p>6634</p>
+                <p>
+                  {randomInteger(movie?.vote_average)}
+                  /10
+                </p>
+                <p>{randomIntegerTwo(movie?.vote_count)}</p>
                 <p>votes</p>
               </div>
             </div>
           </div>
           <div className="grid grid-cols-4 gap-6">
             {
-             ['Drama', 'Action', 'Family', 'Series', 'Romance'].map((item, index) => (
-               <div className="rounded-lg px-4 py-2 bg-[#393838]">
-                 {item}
-               </div>
-             ))
+            genres.map((item, key) => (
+              <div key={key} className="w-fit h-fit rounded-lg px-4 py-2 bg-[#393838] whitespace-nowrap">
+                {item?.name}
+              </div>
+            ))
             }
           </div>
           <p className="text-xs text-shadow-md md:max-w-lg md:text-lg lg:max-w-2xl lg:text-sm">

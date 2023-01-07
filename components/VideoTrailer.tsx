@@ -2,6 +2,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
+import Router from 'next/router';
 import { useRecoilState } from 'recoil';
 import ReactPlayer from 'react-player/lazy';
 import {
@@ -18,6 +19,7 @@ interface Props {
 }
 
 function VideoTrailer() {
+  const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
   let [movie, setMovie] = useRecoilState(movieState);
   const [trailer, setTrailer] = useState('');
   const [genres, setGenres] = useState<Genre[]>([]);
@@ -54,12 +56,18 @@ function VideoTrailer() {
     fetchMovie();
   }, [movie]);
 
+  const showMovie = () => {
+    const strMovie:string = JSON.stringify(movie);
+    localStorage.setItem('movie', strMovie);
+    Router.push('/moviedetails');
+  };
+
   return (
-    <div className="w-screen h-screen">
+    <div className="h-full">
       <div className="w-full h-[80%] relative">
-        <div className="absolute top-10 w-20 h-20 -z-40">
+        {/* <div className="absolute top-10 w-20 h-20 -z-40">
           <AiOutlineArrowLeft color="white" className="w-full h-full" />
-        </div>
+        </div> */}
         <ReactPlayer
           url={`https:www.youtube.com/watch?v=${trailer}`}
           width="100%"
@@ -70,7 +78,15 @@ function VideoTrailer() {
         />
         <div className="flex w-full absolute bottom-10 items-center justify-between px-10">
           <div className="flex space-x-2">
-            <button type="button" className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
+            <button
+              onClick={() => {
+                setCurrentMovie(movie);
+                showMovie();
+                // setShowModal(true);
+              }}
+              type="button"
+              className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]"
+            >
               <FaPlay className="h-7 w-7 text-black" />
               Play
             </button>
@@ -94,7 +110,7 @@ function VideoTrailer() {
           </button>
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="w-full flex flex-col">
         <div className="flex space-x-16 rounded-b-md bg-[#181818] px-10 py-8 h-10%">
           <div className="space-y-6 text-lg">
             <div className="flex items-center space-x-2 text-sm">
