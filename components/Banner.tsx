@@ -113,7 +113,7 @@ function Banner({ netflixOriginals }: Props) {
               type="button"
               onClick={() => {
                 setCurrentMovie(movie);
-                showMovieDetails();
+                showMovie();
               }}
             >
               <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
@@ -124,7 +124,8 @@ function Banner({ netflixOriginals }: Props) {
               type="button"
               onClick={() => {
                 setCurrentMovie(movie);
-                setShowModalTwo(true);
+                showMovieDetails();
+                // setShowModalTwo(true);
               }}
             >
               More Info
