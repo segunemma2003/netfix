@@ -19,6 +19,7 @@ import { auth } from '../firebase';
     signIn: (email: string, password: string) => Promise<void>
     logout: () => Promise<void>
     error: string | null
+    setError: any
     loading: boolean
   }
 
@@ -27,6 +28,7 @@ const AuthContext = createContext<IAuth>({
   signUp: async () => {},
   signIn: async () => {},
   logout: async () => {},
+  setError: async () => {},
   error: null,
   loading: false,
 });
