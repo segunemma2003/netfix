@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import ReactPlayer from 'react-player/lazy';
 import { FaPlay } from 'react-icons/fa';
 
@@ -33,19 +33,14 @@ import { modalState, movieState } from '../atoms/modelAtom';
 import NewHeader from '../components/NewHeader';
 import VideoTrailer from '../components/VideoTrailer';
 import Colss from '../components/Colss';
-import MovieTwo from '../components/MovieTwo';
-import Modal from '../components/Modal';
 
 interface Props {
     trendingNow: Movie[]
   }
 
-function Moviedetails(
+function Moviedetails2(
   { trendingNow }:Props,
 ) {
-  const [showModal, setShowModal] = useRecoilState(modalState);
-  const strMovie:string = localStorage.getItem('movie') || '';
-  const movie = JSON.parse(strMovie);
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
       <Head>
@@ -57,16 +52,18 @@ function Moviedetails(
       <div className="flex flex-row h-full">
         <NewHeader />
         <main className="relative lg:space-y-24 lg:pl-16 w-screen">
-          <MovieTwo movies={movie} onClick={() => setShowModal(true)} />
+          <VideoTrailer />
+          <section className="md:space-y-18 space-y-20">
+            <Colss title="Related Movie/Tv shows" movies={trendingNow} />
+          </section>
         </main>
-        {showModal && <Modal />}
       </div>
     </div>
 
   );
 }
 
-export default Moviedetails;
+export default Moviedetails2;
 
 export const getServerSideProps = async () => {
   const [
