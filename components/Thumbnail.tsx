@@ -52,6 +52,7 @@ function Thumbnail({ movie }: Props) {
           <div className="flex flex-row space-x-2 align-items-center justify-center">
             <BsFillStarFill
               className="w-4 h-4"
+              color="red"
             />
             <p>
               {' '}

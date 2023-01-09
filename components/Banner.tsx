@@ -121,7 +121,7 @@ function Banner({ netflixOriginals }: Props) {
               Play
             </button>
             <button
-              className="bannerbutton bg-[gray]/70"
+              className="bannerbutton bg-white text-black"
               type="button"
               onClick={() => {
                 setCurrentMovie(movie);
@@ -196,7 +196,7 @@ function Banner({ netflixOriginals }: Props) {
           <div className="grid grid-cols-4 gap-6">
             {
             genres.map((item, key) => (
-              <div key={key} className="w-fit h-fit rounded-lg px-4 py-2 bg-[#393838] whitespace-nowrap">
+              <div key={key} className="w-fit h-fit rounded-lg px-4 py-4 bg-[#393838] whitespace-nowrap">
                 {item?.name}
               </div>
             ))
