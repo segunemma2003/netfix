@@ -69,7 +69,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         router.push('/signup/choose');
         setLoading(false);
       })
-      .catch((error) => alert(error.message))
+      .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
   };
 
@@ -81,7 +81,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         router.push('/');
         setLoading(false);
       })
-      .catch((error) => alert(error.message))
+      .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
   };
 
@@ -93,13 +93,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setUser(null);
         router.push('/homepage');
       })
-      .catch((error) => alert(error.message))
+      .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
   };
 
   const memoedValue = useMemo(
     () => ({
-      user, signUp, signIn, error, loading, logout,
+      user, signUp, signIn, error, loading, logout, setError,
     }),
     [user, loading, error],
   );

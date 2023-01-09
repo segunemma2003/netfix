@@ -15,7 +15,9 @@ interface Inputs {
 
 function SignForm() {
   const [login, setLogin] = useState(false);
-  const { signIn, signUp } = useAuth();
+  const {
+    signIn, signUp, error, setError,
+  } = useAuth();
   const [email, setEmail] = useState<string>('');
 
   const {
@@ -112,7 +114,10 @@ function SignForm() {
             >
               Next
             </button>
-
+            <div aria-hidden="true" id="alert" onClick={() => setError('')} className={`${error ? 'flex' : 'hidden'} bg-[#E50914] text-white text-sm  justify-between cursor-pointer shadow-2xl px-2 py-4`}>
+              <p>{error}</p>
+              <p className="text-base">x</p>
+            </div>
           </form>
         </div>
       </main>

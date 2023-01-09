@@ -48,6 +48,7 @@ function Banner({ netflixOriginals }: Props) {
       }
       if (data?.genres) {
         setGenres(data.genres);
+        console.log(genres);
       }
     }
 

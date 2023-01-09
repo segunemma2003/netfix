@@ -43,13 +43,13 @@ function HeaderTwo({ name }: Props) {
         </div>
       </div>
       <div className="flex items-center space-x-4 text-sm font-light">
-        <Link href="/account">
+        {/* <Link href="/account">
           <img
             src="https://rb.gy/g1pwyx"
             alt=""
             className="cursor-pointer rounded"
           />
-        </Link>
+        </Link> */}
       </div>
     </header>
   );

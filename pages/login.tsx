@@ -14,7 +14,9 @@ interface Inputs {
 
 function Login() {
   const [login, setLogin] = useState(false);
-  const { signIn, signUp } = useAuth();
+  const {
+    signIn, signUp, error, setError,
+  } = useAuth();
 
   const moveUser = () => Router.push('/signup');
 
@@ -118,6 +120,10 @@ function Login() {
         >
           Sign In
         </button>
+        <div aria-hidden="true" id="alert" onClick={() => setError('')} className={`${error ? 'flex' : 'hidden'} bg-[#E50914] text-white text-sm  justify-between cursor-pointer shadow-2xl px-2 py-4`}>
+          <p>{error}</p>
+          <p className="text-base">x</p>
+        </div>
         <div className="text-[gray]">
           New to Netflix?
           {' '}
