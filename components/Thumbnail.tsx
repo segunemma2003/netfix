@@ -44,11 +44,11 @@ function Thumbnail({ movie }: Props) {
         />
 
       </div>
-      <div className="w-full text-sm h-16 whitespace-nowrap px-2  transition duration-200 ease-out overflow-hidden py-2 bg-[#333333]">
+      <div className="w-full text-xs lg:text-sm h-16 whitespace-nowrap px-2  transition duration-200 ease-out overflow-hidden py-2 bg-[#333333]">
         <div>
           {movie.title || movie.name}
         </div>
-        <div className="flex flex-row space-x-6">
+        <div className="flex flex-row space-x-2 lg:space-x-6">
           <div className="flex flex-row space-x-2 align-items-center justify-center">
             <BsFillStarFill
               className="w-4 h-4"

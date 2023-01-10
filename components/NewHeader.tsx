@@ -28,7 +28,7 @@ function NewHeader() {
   }, []);
 
   return (
-    <aside className="h-screen fixed  z-50 w-fit pt-32 opacity-60 bg-black" aria-label="Sidebar">
+    <aside className="hidden lg:flex lg:h-screen lg:fixed  lg:z-50 lg:w-fit lg:pt-32 opacity-60 bg-black" aria-label="Sidebar">
       <div className="px-2 py-4 overflow-y-auto rounded  dark:bg-gray-800">
         <ul className="space-y-5">
           <li>
@@ -44,7 +44,9 @@ function NewHeader() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                className="w-8 h-8 text-gray-500
+                transition duration-75 dark:text-gray-400 group-hover:text-gray-900
+                dark:group-hover:text-white"
               >
                 <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clipRule="evenodd" />
               </svg>
