@@ -10,9 +10,9 @@ function MenuDropdown() {
         data-dropdown-toggle="language-dropdown-menu"
         type="button"
       >
-        <BellIcon
+        {/* <BellIcon
           className="h-6 w-6"
-        />
+        /> */}
       </button>
       <div id="language-dropdown-menu" className="hidden z-10 w-60 bg-white rounded shadow dark:bg-gray-700">
         <ul className="overflow-y-auto py-1 h-48 text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUsersButton">

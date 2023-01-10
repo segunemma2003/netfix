@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import Router from 'next/router';
 import { useEffect } from 'react';
 import Banner from '../components/Banner';
-import Header from '../components/Header';
+import HeaderLat from '../components/HeaderLatest';
 import Row from '../components/Row';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
@@ -58,7 +58,7 @@ function Home({
 
       </Head>
 
-      {/* <Header /> */}
+      <HeaderLat />
       <div className="flex flex-row h-full">
         <NewHeader />
         <main className="relative   pb-24 lg:space-y-24 lg:pl-20 w-screen">

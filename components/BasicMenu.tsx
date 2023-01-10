@@ -1,5 +1,7 @@
 import Button from '@mui/material/Button';
+import Router from 'next/router';
 import Menu from '@mui/material/Menu';
+import { FaBars } from 'react-icons/fa';
 import MenuItem from '@mui/material/MenuItem';
 import { useState, MouseEvent } from 'react';
 
@@ -24,7 +26,7 @@ function BasicMenu() {
         onClick={handleClick}
         className="!capitalize !text-white"
       >
-        Browse
+        <FaBars className="w-6 h-6" />
       </Button>
       <Menu
         id="basic-menu"
@@ -36,11 +38,12 @@ function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Home</MenuItem>
-        <MenuItem onClick={handleClose}>TV Shows</MenuItem>
-        <MenuItem onClick={handleClose}>Movies</MenuItem>
-        <MenuItem onClick={handleClose}>New & Popular</MenuItem>
-        <MenuItem onClick={handleClose}>My List</MenuItem>
+        <MenuItem onClick={() => { Router.push('/'); handleClose(); }}>Home</MenuItem>
+        <MenuItem onClick={() => { Router.push('/search'); handleClose(); }}>Search</MenuItem>
+        <MenuItem onClick={() => { Router.push('/tv'); handleClose(); }}>TV Shows</MenuItem>
+        <MenuItem onClick={() => { Router.push('/movies'); handleClose(); }}>Movies</MenuItem>
+        <MenuItem onClick={() => { Router.push('/new'); handleClose(); }}>New & Popular</MenuItem>
+        <MenuItem onClick={() => { Router.push('/mylist'); handleClose(); }}>My List</MenuItem>
       </Menu>
     </div>
   );
