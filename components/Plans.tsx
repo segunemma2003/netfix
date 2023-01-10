@@ -23,7 +23,7 @@ function Plans({ products }: Props) {
     <div>
       <Head>
         <title>Home - Netflix</title>
-        
+
       </Head>
       <header className="border-b border-white/10 bg-[#141414]">
         <Link href="/">
