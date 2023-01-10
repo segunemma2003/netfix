@@ -1,3 +1,5 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Head from 'next/head';
 import Image from 'next/image';
@@ -12,13 +14,12 @@ interface Inputs {
   password: string
 }
 
-function Login() {
+function ForgotPassword() {
   const [login, setLogin] = useState(false);
-  const [showItem, setShowItem] = useState(false);
   const {
     signIn, signUp, error, setError,
   } = useAuth();
-
+  const [selected, setSelected] = useState('email');
   const moveUser = () => Router.push('/signup');
 
   const {
@@ -36,6 +37,10 @@ function Login() {
     }
   };
 
+  const handleChange = (event:any) => {
+    setSelected(event.target.value);
+  };
+
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
       <Head>
@@ -43,7 +48,7 @@ function Login() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Image
-        src="https://rb.gy/p2hphi"
+        src="https://rb.gy/vpa0jn"
         layout="fill"
         alt="ss"
         className="-z-10 !hidden opacity-60 sm:!inline"
@@ -58,18 +63,53 @@ function Login() {
       />
 
       <form
-        className="relative top-20 space-y-8 rounded bg-black/75 py-20 px-32 md:mt-0 md:max-w-md md:px-14 "
-        onSubmit={handleSubmit(onSubmit)}
+        className="relative top-20 space-y-8 rounded bg-black/75 py-20 px-32 md:mt-0 md:max-w-md md:px-14 mb-20"
+        // onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-4xl font-semibold">Sign In</h1>
+        <h1 className="text-4xl font-semibold whitespace-nowrap">Forgot Email/Password</h1>
+        <div className="flex flex-col space-y-3">
+          <p>How would you like to reset your password?</p>
+          <div className="flex flex-col">
+            <div className="flex flex-row items-center space-x-2">
+              <input
+                type="radio"
+                name="mytype"
+                value="email"
+                checked={selected === 'email'}
+                onChange={handleChange}
+              />
+              <label>Email</label>
+            </div>
+            <div className="flex flex-row items-center space-x-2">
+              <input
+                type="radio"
+                name="mytype"
+                value="text"
+                checked={selected === 'text'}
+                onChange={handleChange} 
+              />
+              <label>Text Message (SMS)</label>
+            </div>
+
+          </div>
+          <div>
+            {selected === 'email' ? (<p>We will send you an email with instructions on how to reset your password.</p>)
+              : (
+                <p>
+                  We will text you a verification code to reset your password. 
+                  Message and data rates may apply.
+                </p>
+              )}
+          </div>
+        </div>
         <div className="space-y-4">
           <label
             className="inline-block w-full"
             htmlFor="email"
           >
             <input
-              type="email"
-              placeholder="Email"
+              type={selected === 'email' ? 'email' : 'text'}
+              placeholder={selected === 'email' ? 'Email' : 'Phone Number'}
               className={`input ${
                 errors.email && 'border-b-2 border-orange-500'
               }`}
@@ -81,26 +121,8 @@ function Login() {
               </p>
             )}
           </label>
-          <label
-            htmlFor="password"
-            className="inline-block w-full"
-          >
-            <input
-              type="password"
-              {...register('password', { required: true })}
-              placeholder="Password"
-              className={`input ${
-                errors.password && 'border-b-2 border-orange-500'
-              }`}
-            />
-            {errors.password && (
-              <p className="p-1 text-[13px] font-light  text-orange-500">
-                Your password must contain between 4 and 60 characters.
-              </p>
-            )}
-          </label>
         </div>
-        <div className="w-full flex flex-row justify-between">
+        {/* <div className="w-full flex flex-row justify-between">
           <div className="flex flex-row space-x-2 items-center">
             <input
               type="checkbox"
@@ -108,24 +130,26 @@ function Login() {
             <p>Remember me</p>
           </div>
           <Link
-            href="/forgot"
+            href="#"
           >
             Need help?
           </Link>
-        </div>
+        </div> */}
 
         <button
           className="w-full rounded bg-[#E50914] py-3 font-semibold"
-          onClick={() => setLogin(true)}
+        //   onClick={() => setLogin(true)}
           type="submit"
         >
-          Sign In
+          {
+            selected === 'email' ? 'Email me' : 'Text me'
+          }
         </button>
         <div aria-hidden="true" id="alert" onClick={() => setError('')} className={`${error ? 'flex' : 'hidden'} bg-[#E50914] text-white text-sm  justify-between cursor-pointer shadow-2xl px-2 py-4`}>
           <p>{error}</p>
           <p className="text-base">x</p>
         </div>
-        <div className="text-[gray]">
+        {/* <div className="text-[gray]">
           New to Netflix?
           {' '}
           <button
@@ -135,13 +159,11 @@ function Login() {
           >
             Sign up now
           </button>
-        </div>
-        <p className="text-xs">
+        </div> */}
+        {/* <p className="text-xs">
           This page is protected by Google reCAPTCHA
-          to ensure you are not a bot.
-          <span className="cursor-pointer" aria-hidden="true" onClick={() => setShowItem(!showItem)}> Learn more.</span>
-        </p>
-        <p className={`${showItem ? 'block' : 'hidden'} text-sm`}>The information collected by Google reCAPTCHA is subject to the Google Privacy Policy and Terms of Service, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</p>
+          to ensure you are not a bot. Learn more.
+        </p> */}
       </form>
       <div className="w-full relative top-20 px-20 flex flex-col bg-black/75 space-y-8 py-8 mt-auto">
         <Link
@@ -206,4 +228,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ForgotPassword;
