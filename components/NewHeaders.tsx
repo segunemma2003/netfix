@@ -29,7 +29,7 @@ function NewHeaders() {
   }, []);
 
   return (
-    <aside className="h-full w-fit pt-32 fixed z-50 opacity-60 bg-black" aria-label="Sidebar">
+    <aside className="hidden lg:flex h-full w-fit pt-32 fixed z-50 opacity-60 bg-black" aria-label="Sidebar">
       <div className="px-3 py-4 overflow-y-auto rounded  dark:bg-gray-800">
         <ul className="space-y-5">
           <li>

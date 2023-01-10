@@ -57,7 +57,7 @@ function Search({
       {/* <Header /> */}
       <div className="flex flex-row h-full">
         <NewHeaders />
-        <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-20 w-screen">
+        <main className="relative  pb-24 lg:space-y-24 lg:pl-20 w-screen">
           {/* <Banner
             netflixOriginals={netflixOriginals}
           /> */}
