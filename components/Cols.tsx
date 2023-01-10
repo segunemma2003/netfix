@@ -46,7 +46,7 @@ function Cols({ movies }: Props) {
   const [isMoved, setIsMoved] = useState(false);
 
   return (
-    <div className="h-40 space-y-0.5 md:space-y-8">
+    <div className="h-40 space-y-6 md:space-y-8">
       <h2 className="w-56 whitespace-nowrap cursor-pointer text-2xl font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">My List</h2>
       <div className="space-x-4 flex flex-row">
         {/* <select className="bg-transparent rounded border
@@ -68,11 +68,11 @@ function Cols({ movies }: Props) {
           <option value="">हिन्दी</option>
         </select> */}
       </div>
-      <div className="  -z-0 md:-ml-2">
+      <div className="  -ml-4 md:-ml-2 lg:-ml-2">
 
         <div
-          className="grid grid-cols-4 gap-2 items-center overflow-x-hidden
-              space-x-0.5  scrollbar-hide md:space-x-2.5 md:p-2"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-2 items-center overflow-x-hidden
+              space-x-2  scrollbar-hide md:space-x-2.5 md:p-2"
         >
           {
                 movies.map((movie) => (
