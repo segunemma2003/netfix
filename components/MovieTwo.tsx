@@ -80,8 +80,8 @@ function MovieTwo({ onClick, movies }:Props) {
           objectFit="cover"
         />
       </div>
-      <div className=" px-10 relative top-2 flex flex-col space-y-8">
-        <h1 className="text-2xl md:text-4xl lg:text-7xl">
+      <div className=" w-full px-4 relative top-2 flex flex-col space-y-8">
+        <h1 className="text-3xl  text-red-600 font-semibold md:text-4xl lg:text-7xl">
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
         <div className="flex flex-row space-x-4">
@@ -91,10 +91,10 @@ function MovieTwo({ onClick, movies }:Props) {
             PG-13
           </div>
           <p>1hr 45min</p>
-          <div className="w-fit h-fit px-4  bg-transparent border border-white rounded">
+          <div className="hidden lg:block w-fit h-fit px-4  bg-transparent border border-white rounded">
             HD
           </div>
-          <div className="w-fit h-fit px-4  bg-transparent border border-white rounded">
+          <div className="hidden lg:block w-fit h-fit px-4  bg-transparent border border-white rounded">
             5.2
           </div>
         </div>
@@ -125,28 +125,28 @@ function MovieTwo({ onClick, movies }:Props) {
           </div>
         </div>
 
-        <div className="w-4/6">
+        <div className="w-full lg:w-4/6">
           <h3 className="text-2xl font-semibold"> #3 in Movies Today </h3>
           <p>
             {movie?.overview}
           </p>
         </div>
-        <div className="w-4/6 flex flex-row space-x-4">
+        <div className=" w-full lg:w-4/6 flex flex-row space-x-4">
           <BsHandThumbsUp
             color="white"
           />
           <BsHandThumbsDown />
         </div>
-        <div className="w-4/6 flex  flex-col space-y-6">
+        <div className="w-full lg:w-4/6 flex whitespace-nowrap  flex-col space-y-6">
           <div
             aria-hidden="true"
             onClick={() => {
               setMovie(movie);
               showMovie();
             }}
-            className="hover:border-2 hover:border-white w-1/3 flex flex-row px-4 space-x-4 items-center rounded-lg cursor-pointer"
+            className="hover:border-2 hover:border-white w-fit lg:w-1/3 flex flex-row px-4 space-x-4 items-center rounded-lg cursor-pointer"
           >
-            <FaPlay />
+            <FaPlay className="w-4 h-4" />
             <p>Resume Playing</p>
           </div>
           <div
@@ -166,9 +166,9 @@ function MovieTwo({ onClick, movies }:Props) {
               setMovie(movie);
               onClick();
             }}
-            className="hover:border-2 hover:border-white w-1/3 flex flex-row px-4 space-x-4 items-center rounded-lg cursor-pointer"
+            className="hover:border-2 hover:border-white w-fit  lg:w-1/3 flex flex-row px-4 space-x-4 items-center rounded-lg cursor-pointer"
           >
-            <FaPlay />
+            <FaPlay className="w-4 h-4" />
             <p>Resume Trailer</p>
           </div>
         </div>

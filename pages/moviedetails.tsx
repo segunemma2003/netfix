@@ -57,8 +57,8 @@ function Moviedetails(
       {/* <Header /> */}
       <div className="flex flex-row h-screen">
         <NewHeader />
-        <main className="relative lg:space-y-24 lg:pl-16 w-screen">
-          <MovieTwo movies={movie} onClick={() => setShowModal(true)} />
+        <main className="relative space-y-12 lg:space-y-24 lg:pl-16 w-screen">
+          <MovieTwo movies={movie} onClick={() => { localStorage.setItem('movie', JSON.stringify(movie)); setShowModal(true); }} />
           <Row title="Similar Movies" movies={trendingNow} />
         </main>
         {showModal && <Modal />}

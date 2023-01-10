@@ -1,4 +1,6 @@
+/* eslint-disable prefer-const */
 import { useEffect, useState } from 'react';
+import Router from 'next/router';
 import { useRecoilState } from 'recoil';
 import ReactPlayer from 'react-player/lazy';
 import { FaPlay } from 'react-icons/fa';
@@ -26,7 +28,7 @@ import useAuth from '../hooks/useAuth';
 import { modalState, movieState } from '../atoms/modelAtom';
 
 function Modal() {
-  const [movie, setMovie] = useRecoilState(movieState);
+  let [movie, setMovie] = useRecoilState(movieState);
   const [trailer, setTrailer] = useState('');
   const [showModal, setShowModal] = useRecoilState(modalState);
   const [muted, setMuted] = useState(true);
@@ -46,7 +48,10 @@ function Modal() {
   };
 
   useEffect(() => {
-    if (!movie) return;
+    if (!movie) {
+      const strMovie = localStorage.getItem('movie') || '';
+      movie = JSON.parse(strMovie);
+    }
 
     async function fetchMovie() {
       const data = await fetch(
@@ -124,6 +129,11 @@ function Modal() {
       );
     }
   };
+  const showMovie = () => {
+    const strMovie:string = JSON.stringify(movie);
+    localStorage.setItem('movie', strMovie);
+    Router.push('/videoread');
+  };
 
   return (
     <MuiModal
@@ -141,7 +151,7 @@ function Modal() {
           <XIcon className="h-6 w-6" />
         </button>
 
-        <div className="relative pt-[56.25%]">
+        <div className="h-[80%] lg:h-[60%] relative pt-[56.25%]">
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${trailer}`}
             width="100%"
@@ -150,9 +160,16 @@ function Modal() {
             playing
             muted={muted}
           />
-          <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
+          <div className="absolute bottom-10 flex w-full items-center justify-between px-2 lg:px-10">
             <div className="flex space-x-2">
-              <button type="button" className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
+              <button
+                onClick={() => {
+                  setMovie(movie);
+                  showMovie();
+                }}
+                type="button"
+                className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]"
+              >
                 <FaPlay className="h-7 w-7 text-black" />
                 Play
               </button>
