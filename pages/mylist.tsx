@@ -13,6 +13,7 @@ import ModalTwo from '../components/ModalTwo';
 import Plans from '../components/Plans';
 import productss from './api/products';
 import NewHeaders from '../components/NewHeaders';
+import HeaderLat from '../components/HeaderLatest';
 
 interface Props {
   netflixOriginals: Movie[]
@@ -54,10 +55,10 @@ function Home({
 
       </Head>
 
-      {/* <Header /> */}
+      <HeaderLat />
       <div className="flex flex-row h-full">
         <NewHeaders />
-        <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-20 w-screen">
+        <main className="relative pl-4 pt-12 lg:pt-4 pb-24 lg:space-y-24 lg:pl-20 w-screen">
           {/* <Banner
             netflixOriginals={netflixOriginals}
           /> */}

@@ -12,7 +12,8 @@ import { modalStateTwo } from '../atoms/modelAtom';
 import ModalTwo from '../components/ModalTwo';
 import Plans from '../components/Plans';
 import productss from './api/products';
-import NewHeaders from '../components/NewHeaders';
+import NewHeader from '../components/NewHeader';
+import HeaderLat from '../components/HeaderLatest';
 
 interface Props {
   netflixOriginals: Movie[]
@@ -48,16 +49,16 @@ function Home({
   // if (!subscription) return <Plans products={products} />;
 
   return (
-    <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] w-screen">
+    <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
       <Head>
         <title>Home - Netflix</title>
 
       </Head>
 
-      {/* <Header /> */}
-      <div className="flex flex-row max-md:overflow-x-hidden  h-full w-screen">
-        <NewHeaders />
-        <main className="relative pb-24 pt-8 lg:space-y-24 lg:pl-20 w-screen">
+      <HeaderLat />
+      <div className="flex flex-row   h-full">
+        <NewHeader />
+        <main className="relative pb-24 pt-16  lg:pt-10 lg:space-y-24 lg:pl-20 w-screen">
           {/* <Banner
             netflixOriginals={netflixOriginals}
           /> */}
