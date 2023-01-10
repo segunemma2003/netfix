@@ -43,7 +43,7 @@ function HeaderTwo({ name }: Props) {
   }, []);
 
   return (
-    <header className={`px-24 ${isScrolled && 'bg-[#141414]'} flex items-center h-28`}>
+    <header className={` lg:px-24 ${isScrolled && 'bg-[#141414]'} flex items-center h-fit  whitespace-nowrap mb-20`}>
       <div className=" flex flex-row items-center space-x-2 md:space-x-10">
         <h1 className="text-2xl font-bold">
           {name}

@@ -61,7 +61,7 @@ function Home({
       {/* <Header /> */}
       <div className="flex flex-row h-full">
         <NewHeader />
-        <main className="relative  lg:pl-10 pb-24 lg:space-y-24 lg:pl-20 w-screen">
+        <main className="relative   pb-24 lg:space-y-24 lg:pl-20 w-screen">
           <Banner
             netflixOriginals={netflixOriginals}
           />

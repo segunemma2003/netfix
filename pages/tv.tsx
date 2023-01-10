@@ -55,9 +55,9 @@ function Tv({
       </Head>
 
       <HeaderTwo name="Tv Series" />
-      <div className="flex flex-Colss h-full">
+      <div className="flex flex-col h-full">
         <NewHeader />
-        <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-24 w-screen">
+        <main className="relative pt-16 px-4 lg:pt-10 pb-24 lg:space-y-24 lg:pl-20 w-screen">
           <BannerThree
             netflixOriginals={netflixOriginals}
           />

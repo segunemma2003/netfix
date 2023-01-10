@@ -78,13 +78,13 @@ function BannerThree({ netflixOriginals }: Props) {
         />
       </div>
 
-      <div className=" h-fit flex flex-row relative top-20 mr-20">
-        <div className="w-1/2 grid grid-cols-1 gap-4 content-between">
-          <div className="space-y-2">
-            <h1 className="text-2xl text-red-800 font-bold md:text-3xl lg:text-6xl">
+      <div className=" block space-y-4  h-fit lg:flex lg:flex-row relative lg:top-20 lg:mr-20">
+        <div className="w-full space-y-4  lg:w-1/2 lg:grid lg:grid-cols-1 lg:gap-4 lg:content-between">
+          <div className="space-y-3 lg:space-y-2">
+            <h1 className="text-4xl text-red-800 font-bold md:text-5xl md:w-full lg:text-6xl">
               {movie?.title || movie?.name || movie?.original_name}
             </h1>
-            <div className="flex flex-row w-fit space-x-5">
+            <div className="flex whitespace-nowrap flex-row w-fit space-x-3 text-xs lg:text-base lg:space-x-5">
               <div className="flex flex-row space-x-2 align-items-center justify-center">
                 <BsFillStarFill
                   className="w-5 h-5"
@@ -107,7 +107,7 @@ function BannerThree({ netflixOriginals }: Props) {
           </div>
           <div className="flex space-x-6">
             <button
-              className="bannerbutton bg-white text-black"
+              className="w-1/2 text-sm lg:text-base whitespace-nowrap lg:w-fit  bannerbutton bg-white text-black"
               type="button"
               onClick={() => {
                 setCurrentMovie(movie);
@@ -118,7 +118,7 @@ function BannerThree({ netflixOriginals }: Props) {
               Play
             </button>
             <button
-              className="bannerbutton  bg-white text-black"
+              className="w-1/2 text-lg lg:text-base whitespace-nowrap lg:w-fit bannerbutton bg-white text-black"
               type="button"
               onClick={() => {
                 setCurrentMovie(movie);
@@ -130,9 +130,9 @@ function BannerThree({ netflixOriginals }: Props) {
             </button>
           </div>
         </div>
-        <div className="w-1/2 flex flex-col space-y-10 pt-50">
+        <div className="w-full lg:w-1/2  flex flex-col space-y-10 pt-50">
           <div className="flex flex-row space-x-10">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col lg:space-y-4">
               <FaImdb
                 className="w-8 h-12"
                 color="orange"
@@ -146,7 +146,7 @@ function BannerThree({ netflixOriginals }: Props) {
                 <p>votes</p>
               </div>
             </div>
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col lg:space-y-4">
               <GiTomato
                 className="w-8 h-12"
                 color="red"
@@ -189,16 +189,16 @@ function BannerThree({ netflixOriginals }: Props) {
               </div>
             </div> */}
           </div>
-          <div className="grid grid-cols-4 gap-6">
+          <div className="w-full grid grid-cols-2 space-x-2 gap-2 lg:space-x-2 lg:grid-cols-4 lg:gap-6">
             {
              genres.map((item, key) => (
-               <div key={key} className="w-fit h-fit rounded-lg px-4 py-4 bg-[#393838] whitespace-nowrap">
+               <div key={key} className="w-full lg:w-fit h-fit rounded-lg px-4 py-4 bg-[#393838] whitespace-nowrap">
                  {item?.name}
                </div>
              ))
             }
           </div>
-          <p className="text-xs text-shadow-md md:max-w-lg md:text-lg lg:max-w-2xl lg:text-sm">
+          <p className="text-sm w-full text-shadow-md md:max-w-lg md:text-lg lg:max-w-2xl lg:text-base">
             {movie?.overview}
           </p>
         </div>

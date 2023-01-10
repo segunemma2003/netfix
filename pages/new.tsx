@@ -48,27 +48,27 @@ function Home({
   // if (!subscription) return <Plans products={products} />;
 
   return (
-    <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
+    <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] w-screen">
       <Head>
         <title>Home - Netflix</title>
-        
+
       </Head>
 
       {/* <Header /> */}
-      <div className="flex flex-Colss h-full">
+      <div className="flex flex-row max-md:overflow-x-hidden  h-full w-screen">
         <NewHeaders />
-        <main className="relative pl-4 pt-8 pb-24 lg:space-y-24 lg:pl-24 w-screen">
+        <main className="relative pb-24 pt-8 lg:space-y-24 lg:pl-20 w-screen">
           {/* <Banner
             netflixOriginals={netflixOriginals}
           /> */}
-          <section className="md:space-y-18 space-y-20">
+          <section className="md:space-y-18 space-y-20 w-full">
             <Colss title="New on Netflix" movies={trendingNow} />
             <Colss title="Worth the Wait" movies={topRated} />
-            <Colss title="Top 10 Movies Today on Netflix" movies={actionMovies} />
+            <Colss title="Top 10 Movies " movies={actionMovies} />
             {/* My List */}
 
             <Colss title="Coming this Week" movies={comedyMovies} />
-            <Colss title="Top 10 Series Today on Netflix" movies={horrorMovies} />
+            <Colss title="Top 10 Series" movies={horrorMovies} />
             <Colss title="Coming Next Week" movies={romanceMovies} />
             {/* <Colss title="Documentaries" movies={documentaries} /> */}
           </section>

@@ -48,7 +48,7 @@ function Thumbnail({ movie }: Props) {
         <div>
           {movie.title || movie.name}
         </div>
-        <div className="flex flex-row space-x-2 lg:space-x-6">
+        <div className="text-[0.67rem] lg:text-sm flex flex-row space-x-2 lg:space-x-6">
           <div className="flex flex-row space-x-2 align-items-center justify-center">
             <BsFillStarFill
               className="w-4 h-4"
@@ -59,7 +59,7 @@ function Thumbnail({ movie }: Props) {
               {Math.floor(movie.vote_average)}
             </p>
           </div>
-          <div className="flex flex-row align-items-center justify-center">
+          <div className=" flex flex-row align-items-center justify-center">
             <div className="flex flex-row">
               <p>Release</p>
               <BsDot
