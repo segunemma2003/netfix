@@ -36,8 +36,8 @@ function HeaderTwo({ name }: Props) {
           {name}
         </h1>
         <div className="">
-          <select className="bg-transparent rounded border border-white px-4 py-1  text-white" name="" id="cars">
-            <option value=""><span className="hover:bg-red-700 bg-red-700">Genres</span></option>
+          <select className="w-28 bg-transparent rounded border border-white px-4 space-x-6 py-1  text-white" name="" id="cars">
+            <option value="">Genres</option>
             <option value="">हिन्दी</option>
           </select>
         </div>
