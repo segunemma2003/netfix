@@ -8,7 +8,7 @@ function Contactus() {
     <div className="relative flex bg-white h-screen w-screen  flex-col  md:items-center md:justify-center md:bg-transparent">
       <Head>
         <title>Netflix</title>
-        <link rel="icon" href="/favicon.ico" />
+        
       </Head>
       <header className="border-b border-white/10 bg-[#141414] px-64">
         <Link href="/">

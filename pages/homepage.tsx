@@ -13,7 +13,7 @@ export default function Home() {
     <div className="relative h-screen bg-black lg:h-[140vh] md:bg-transparent">
       <Head>
         <title>Home - Netflix</title>
-        <link rel="icon" href="/favicon.ico" />
+        
       </Head>
       <Welcome />
       <main>

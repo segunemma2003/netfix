@@ -3,6 +3,7 @@
 module.exports = {
   content: [
     './node_modules/flowbite-react/**/*.js',
+    './node_modules/react-tailwindcss-select/dist/index.esm.js',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',

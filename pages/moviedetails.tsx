@@ -35,6 +35,7 @@ import VideoTrailer from '../components/VideoTrailer';
 import Colss from '../components/Colss';
 import MovieTwo from '../components/MovieTwo';
 import Modal from '../components/Modal';
+import Row from '../components/Row';
 
 interface Props {
     trendingNow: Movie[]
@@ -50,14 +51,15 @@ function Moviedetails(
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
       <Head>
         <title>Home - Netflix</title>
-        <link rel="icon" href="/favicon.ico" />
+
       </Head>
 
       {/* <Header /> */}
-      <div className="flex flex-row h-full">
+      <div className="flex flex-row h-screen">
         <NewHeader />
         <main className="relative lg:space-y-24 lg:pl-16 w-screen">
           <MovieTwo movies={movie} onClick={() => setShowModal(true)} />
+          <Row title="Similar Movies" movies={trendingNow} />
         </main>
         {showModal && <Modal />}
       </div>

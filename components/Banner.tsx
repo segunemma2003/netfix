@@ -164,7 +164,7 @@ function Banner({ netflixOriginals }: Props) {
                 <p>votes</p>
               </div>
             </div>
-            <div className="flex flex-col space-y-4">
+            {/* <div className="flex flex-col space-y-4">
               <FaImdb
                 className="w-8 h-12"
                 color="orange"
@@ -191,7 +191,7 @@ function Banner({ netflixOriginals }: Props) {
                 <p>{randomIntegerTwo(movie?.vote_count)}</p>
                 <p>votes</p>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="grid grid-cols-4 gap-6">
             {

@@ -2,10 +2,13 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { BsHandThumbsUp, BsHandThumbsDown } from 'react-icons/bs';
+import { GiTomato } from 'react-icons/gi';
+import {
+  FaImdb, FaPlay, FaRecycle,
+} from 'react-icons/fa';
 import { useRecoilState } from 'recoil';
 import Router from 'next/router';
 import ReactPlayer from 'react-player/lazy';
-import { FaPlay, FaRecycle } from 'react-icons/fa';
 import {
   CheckIcon,
   PlusIcon,
@@ -62,10 +65,13 @@ function MovieTwo({ onClick, movies }:Props) {
     fetchMovie();
   }, []);
 
+  const randomInteger = (min: any) => Math.floor(Math.random() * (9 - min + 1)) + min;
+
+  const randomIntegerTwo = (min: any) => Math.floor(Math.random() * (10000 - min + 1)) + min;
   // Check if the movie is already in the user's list
   return (
     <>
-      <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen bg-blend-darken pt-50">
+      <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen bg-blend-darken pt-30">
         <Image
           src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
           layout="fill"
@@ -74,7 +80,7 @@ function MovieTwo({ onClick, movies }:Props) {
           objectFit="cover"
         />
       </div>
-      <div className=" px-10 relative top-10 flex flex-col space-y-8">
+      <div className=" px-10 relative top-2 flex flex-col space-y-8">
         <h1 className="text-2xl md:text-4xl lg:text-7xl">
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
@@ -92,6 +98,33 @@ function MovieTwo({ onClick, movies }:Props) {
             5.2
           </div>
         </div>
+        <div className="flex flex-row space-x-4">
+          <div className="flex flex-col space-y-2">
+            <GiTomato
+              className="w-8 h-12"
+              color="orange"
+            />
+            <p>
+              {parseInt(randomInteger(movie?.vote_average), 10)}
+              /10
+            </p>
+            <p>{randomIntegerTwo(movie?.vote_count)}</p>
+            <p>votes</p>
+          </div>
+          <div className="flex flex-col space-y-2">
+            <FaImdb
+              className="w-8 h-12"
+              color="red"
+            />
+            <p>
+              {parseInt(randomInteger(movie?.vote_average), 10)}
+              /10
+            </p>
+            <p>{randomIntegerTwo(movie?.vote_count)}</p>
+            <p>votes</p>
+          </div>
+        </div>
+
         <div className="w-4/6">
           <h3 className="text-2xl font-semibold"> #3 in Movies Today </h3>
           <p>
