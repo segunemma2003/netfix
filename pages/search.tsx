@@ -8,7 +8,7 @@ import ColSearch from '../components/ColSearch';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
-import { modalStateTwo } from '../atoms/modelAtom';
+import { modalStateTwo, openTwo } from '../atoms/modelAtom';
 import ModalTwo from '../components/ModalTwo';
 import Plans from '../components/Plans';
 import productss from './api/products';
@@ -40,6 +40,7 @@ function Search({
 }:Props) {
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalStateTwo);
+  const showOpen = useRecoilValue(openTwo);
   const subscription = false;
 
   if (loading || subscription === null) return null;
@@ -58,7 +59,7 @@ function Search({
       <HeaderLat />
       <div className="flex flex-row h-full">
         <NewHeaders />
-        <main className="relative pt-16 lg:pt-4  pb-24 lg:space-y-24 lg:pl-20 w-screen">
+        <main className={`relative pt-16 lg:pt-4  pb-24 lg:space-y-24  w-screen transition duration-75 ease-in-out  ${showOpen ? 'lg:pl-64' : 'lg:pl-20'}`}>
           {/* <Banner
             netflixOriginals={netflixOriginals}
           /> */}
