@@ -8,7 +8,7 @@ import Colss from '../components/Colss';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
-import { modalStateTwo, openTwo } from '../atoms/modelAtom';
+import { modalStateTwo, openOne } from '../atoms/modelAtom';
 import ModalTwo from '../components/ModalTwo';
 import Plans from '../components/Plans';
 import productss from './api/products';
@@ -39,7 +39,7 @@ function Tv({
 }:Props) {
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalStateTwo);
-  const showOpen = useRecoilValue(openTwo);
+  const showOpen = useRecoilValue(openOne);
   const subscription = false;
 
   if (loading || subscription === null) return null;
@@ -58,7 +58,7 @@ function Tv({
       <HeaderTwo name="Tv Series" />
       <div className="flex flex-col h-full">
         <NewHeader />
-        <main className={`relative pt-16 px-4 lg:pt-10 pb-24 lg:space-y-24  w-screen ${showOpen ? 'lg:pl-64' : 'lg:pl-20'}`}>
+        <main className={`relative pt-16 px-4 lg:pt-10 pb-24 lg:space-y-24  w-screen transition duration-75 ease-in-out  ${showOpen ? 'lg:pl-64' : 'lg:pl-20'}`}>
           <BannerThree
             netflixOriginals={netflixOriginals}
           />
