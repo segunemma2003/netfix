@@ -12,6 +12,15 @@ export const modalStateTwo = atom({
   default: false,
 });
 
+export const openOne = atom({
+  key: 'openOne',
+  default: false,
+});
+
+export const openTwo = atom({
+  key: 'openTwo',
+  default: false,
+});
 export const movieState = atom<Movie | DocumentData | null>({
   key: 'movieState',
   default: null,

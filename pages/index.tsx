@@ -8,7 +8,7 @@ import Row from '../components/Row';
 import useAuth from '../hooks/useAuth';
 import { Movie, Product } from '../typings';
 import requests from '../utils/requests';
-import { modalState, modalStateTwo } from '../atoms/modelAtom';
+import { modalState, modalStateTwo, openOne } from '../atoms/modelAtom';
 import Modal from '../components/Modal';
 import Plans from '../components/Plans';
 import productss from './api/products';
@@ -42,6 +42,7 @@ function Home({
 }:Props) {
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalState);
+  const showOpen = useRecoilValue(openOne);
   const showModalTwo = useRecoilValue(modalStateTwo);
   const subscription = false;
 
@@ -61,7 +62,7 @@ function Home({
       <HeaderLat />
       <div className="flex flex-row h-full">
         <NewHeader />
-        <main className="relative   pb-24 lg:space-y-24 lg:pl-20 w-screen">
+        <main className={`relative   pb-24 lg:space-y-24 w-screen transition duration-75 ease-in-out ${showOpen ? 'lg:pl-64' : 'lg:pl-20'}`}>
           <Banner
             netflixOriginals={netflixOriginals}
           />
