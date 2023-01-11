@@ -17,16 +17,16 @@ function HomeBanner() {
   };
   return (
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[100vh]  lg:justify-center lg:pb-12">
-      <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen  ">
+      <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen">
         <Image
           src="https://rb.gy/3ewa1y"
           layout="fill"
           alt="dd"
-          className="-z-10 !hidden opacity-30 sm:!inline"
+          className="opacity-30 "
           objectFit="cover"
         />
       </div>
-      <div className=" w-2/3 mx-auto text-center text-white md:w-[800px]">
+      <div className="w-2/3 mx-auto text-center text-white md:w-[800px]">
         <h1 className="text-3xl md:text-7xl font-semibold">
           Unlimited movies, TV shows and more.
         </h1>

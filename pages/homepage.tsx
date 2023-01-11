@@ -10,19 +10,19 @@ import HomeBanner from '../components/HomeBanner';
 export default function Home() {
   const [email, setEmail] = useState('');
   return (
-    <div className="relative h-screen bg-black lg:h-[140vh] md:bg-transparent">
+    <div className="relative h-screen bg-black lg:h-[140vh] md:bg-transparent w-screen">
       <Head>
         <title>Home - Netflix</title>
-        
+
       </Head>
       <Welcome />
       <main>
         <HomeBanner />
-        <hr className="divide-stone-600" />
-        <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">
-          <div className="w-1/2">
-            <h1 className="text-5xl font-bold">Enjoy on your TV.</h1>
-            <p className="text-3xl">
+        <hr className="w-full divide-stone-600" />
+        <div className="h-full space-y-4 text-center lg:text-left py-24 px-20 flex flex-col lg:flex-row lg:justify-between  bg-black">
+          <div className="w-full lg:w-1/2">
+            <h1 className="text-3xl lg:text-5xl font-bold">Enjoy on your TV.</h1>
+            <p className="text-base lg:text-3xl">
               Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more
             </p>
           </div>
@@ -41,7 +41,7 @@ export default function Home() {
 
         </div>
         <hr />
-        <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">
+        <div className="h-full py-24 space-y-4 px-20 flex flex-col lg:flex-row text-center lg:text-left lg:justify-between  bg-black">
           <div
             className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
             aria-hidden="true"
@@ -53,19 +53,19 @@ export default function Home() {
               alt="hj"
             />
           </div>
-          <div className="w-1/2">
-            <h1 className="text-5xl font-bold">Download your shows to watch offline.</h1>
-            <p className="text-3xl">
+          <div className="w-full lg:w-1/2">
+            <h1 className="text-3xl lg:text-5xl font-bold">Download your shows to watch offline.</h1>
+            <p className="text-base lg:text-3xl">
               Save your favorites easily and always have something to watch.
             </p>
           </div>
 
         </div>
         <hr />
-        <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">
-          <div className="w-1/2">
-            <h1 className="text-5xl font-bold">Watch everywhere.</h1>
-            <p className="text-3xl">
+        <div className="h-full py-24 px-20 flex flex-col space-y-6 lg:flex-row lg:justify-between text-center lg:text-left  bg-black">
+          <div className="w-full lg:w-1/2">
+            <h1 className="text-3xl     lg:text-5xl font-bold">Watch everywhere.</h1>
+            <p className="text-base lg:text-3xl">
               Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.
             </p>
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
           />
         </div>
         <hr />
-        <div className="h-full py-24 px-20 flex flex-row justify-between  bg-black">
+        <div className="h-full py-24 px-20 flex flex-col space-y-6 lg:flex-row lg:justify-between text-center lg:text-left bg-black">
           <div
             className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105"
             aria-hidden="true"
@@ -87,9 +87,9 @@ export default function Home() {
               alt="hj"
             />
           </div>
-          <div className="w-1/2">
-            <h1 className="text-5xl font-bold">Create profiles for kids.</h1>
-            <p className="text-3xl">
+          <div className="w-full lg:w-1/2">
+            <h1 className="text-3xl lg:text-5xl font-bold">Create profiles for kids.</h1>
+            <p className="text-base lg:text-3xl">
               Send kids on adventures with their favorite characters in a space made just
               for them—free with your membership.
             </p>
@@ -99,13 +99,13 @@ export default function Home() {
         <hr />
         <AccordianPage />
         <hr />
-        <div className="w-full px-36 flex flex-col bg-black space-y-8 py-8 mt-auto">
+        <div className="w-full px-8 lg:px-36 flex flex-col bg-black space-y-8 py-8 mt-auto">
           <Link
             href="#"
           >
             Questions? Contact us.
           </Link>
-          <div className="flex flex-row space-x-32 text-xs">
+          <div className="flex flex-row space-x-4 lg:space-x-32 text-xs">
             <div className="flex flex-col space-y-2">
               <Link
                 href="#"
@@ -158,7 +158,7 @@ export default function Home() {
 
               </Link>
             </div>
-            <div className="flex flex-col space-y-2">
+            <div className="hidden lg:flex flex-col space-y-2">
               <Link
                 href="#"
               >
@@ -184,7 +184,7 @@ export default function Home() {
 
               </Link>
             </div>
-            <div className="flex flex-col space-y-2">
+            <div className="hidden lg:flex flex-col space-y-2">
               <Link
                 href="#"
               >

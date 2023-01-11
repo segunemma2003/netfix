@@ -24,8 +24,8 @@ function Welcome() {
     };
   }, []);
   return (
-    <header className={`${isScrolled && 'bg-[#141414]'}`}>
-      <div className="flex items-center space-x-2 md:space-x-10">
+    <header className={`w-full h-fit ${isScrolled && 'bg-[#141414]'}`}>
+      <div className="flex items-center space-x-2 md:space-x-10 ">
         <img
           src="https://rb.gy/ulxxee"
           className="absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6"
