@@ -58,7 +58,7 @@ function Login() {
       />
 
       <form
-        className="relative top-20 space-y-8 rounded bg-black/75 py-20 px-12 lg:px-32 md:mt-0 md:max-w-md md:px-14 "
+        className="relative top-20 space-y-8 rounded bg-black/75 py-20 px-12 lg:px-16 md:mt-0 md:max-w-md md:px-14 "
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-4xl font-semibold">Sign In</h1>
