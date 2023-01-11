@@ -58,7 +58,7 @@ function Login() {
       />
 
       <form
-        className="relative top-20 space-y-8 rounded bg-black/75 py-20 px-32 md:mt-0 md:max-w-md md:px-14 "
+        className="relative top-20 space-y-8 rounded bg-black/75 py-20 px-12 lg:px-32 md:mt-0 md:max-w-md md:px-14 "
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-4xl font-semibold">Sign In</h1>
@@ -143,13 +143,13 @@ function Login() {
         </p>
         <p className={`${showItem ? 'block' : 'hidden'} text-sm`}>The information collected by Google reCAPTCHA is subject to the Google Privacy Policy and Terms of Service, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</p>
       </form>
-      <div className="w-full relative top-20 px-20 flex flex-col bg-black/75 space-y-8 py-8 mt-auto">
+      <div className="w-full relative top-20 px-12 lg:px-20 flex flex-col bg-black/75 space-y-8 py-8 mt-auto">
         <Link
           href="#"
         >
           Questions? Contact us.
         </Link>
-        <div className="flex flex-row space-x-32 text-xs">
+        <div className="flex flex-row space-x-20 lg:space-x-32 text-xs">
           <div className="flex flex-col space-y-2">
             <Link
               href="#"
@@ -178,7 +178,7 @@ function Login() {
 
             </Link>
           </div>
-          <div className="flex flex-col space-y-2">
+          <div className="hidden lg:flex flex-col space-y-2">
             <Link
               href="#"
             >
@@ -192,7 +192,7 @@ function Login() {
 
             </Link>
           </div>
-          <div className="flex flex-col space-y-2">
+          <div className="hidden lg:flex flex-col space-y-2">
             <Link
               href="#"
             >

@@ -48,12 +48,12 @@ function SignPayForm() {
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
       <Head>
         <title>Netflix</title>
-        
+
       </Head>
       <HeaderSign />
 
-      <main className="mt-96 pt-72">
-        <div className="w-4/12 flex flex-col space-y-3 text-start  mx-auto pb-32">
+      <main className="mt-24 pt-24 lg:mt-96 lg:pt-72">
+        <div className="w-9/12 lg:w-4/12 flex flex-col space-y-3 text-start  mx-auto pb-12 lg:pb-32">
 
           <p className="text-sm">STEP 3 OF 3</p>
           <h4 className="pt-2 text-3xl font-bold">Set up your credit or debit card</h4>

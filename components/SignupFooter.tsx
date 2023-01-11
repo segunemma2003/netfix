@@ -4,13 +4,13 @@ import React from 'react';
 
 function SignupFooter() {
   return (
-    <div className="w-full px-20 flex flex-col bg-[#333333] space-y-8 py-8 mt-auto">
+    <div className="w-full px-4 lg:px-20 flex flex-col bg-[#333333] space-y-8 py-8 mt-auto">
       <Link
         href="#"
       >
         Questions? Contact us.
       </Link>
-      <div className="flex flex-row space-x-32 text-xs">
+      <div className="flex flex-row  space-x-32 text-xs">
         <div className="flex flex-col space-y-2">
           <Link
             href="#"
@@ -39,7 +39,7 @@ function SignupFooter() {
 
           </Link>
         </div>
-        <div className="flex flex-col space-y-2">
+        <div className="hidden lg:flex flex-col space-y-2">
           <Link
             href="#"
           >
@@ -53,7 +53,7 @@ function SignupFooter() {
 
           </Link>
         </div>
-        <div className="flex flex-col space-y-2">
+        <div className="hidden lg:flex flex-col space-y-2">
           <Link
             href="#"
           >
